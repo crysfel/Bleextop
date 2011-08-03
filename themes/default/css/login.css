@@ -1,0 +1,16 @@
+
+html,body{
+	font-family:Arial,Verdana;
+	background:#fff url(../../../resources/wallpapers/blue2.jpg) center center no-repeat;
+	height:100%;
+}
+#loading{
+	width:200px;
+	margin:150px auto;
+	text-align:center;
+}
+
+#loading p{
+	font-size:0.9em;
+	color:#555;
+}

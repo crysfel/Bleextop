@@ -1,0 +1,98 @@
+
+/* 16x16 */
+.facebook-app-start-icon{
+	background:transparent url(../images/icons/16/facebook.png) 0 0 no-repeat;
+}
+.twitter-app-start-icon{
+	background:transparent url(../images/icons/16/twitter.png) 0 0 no-repeat;
+}
+.notepad-app-start-icon{
+	background:transparent url(../images/icons/16/notepad.png) 0 0 no-repeat;
+}
+.safari-app-start-icon{
+	background:transparent url(../images/icons/16/Safari.png) 0 0 no-repeat;
+}
+.messenger-app-start-icon{
+	background:transparent url(../images/icons/16/SMS.png) 0 0 no-repeat;
+}
+.explorer-app-start-icon{
+	background:transparent url(../images/icons/16/folder.png) 0 0 no-repeat;
+}
+
+
+.roles-icon{
+	background:transparent url(../images/icons/16/vcard_edit.png) 0 0 no-repeat;
+}
+.clients-icon{
+	background:transparent url(../images/icons/16/user_suit.png) 0 0 no-repeat;
+}
+.users-icon{
+	background:transparent url(../images/icons/16/user_edit.png) 0 0 no-repeat;
+}
+.applications-icon{
+	background:transparent url(../images/icons/16/applications-blue.png) 0 0 no-repeat;
+}
+
+
+
+
+/* START MENU 16x16 icons */
+.bleext-start-button-icon{
+	background:transparent url(../images/startmenu/bleext-logo-small.png) 0 center no-repeat !important;
+}
+.bleext-folder-icon{
+	background:transparent url(../images/icons/16/folder.png) 0 0 no-repeat;
+}
+.bleext-desktop-icon{
+	background:transparent url(../images/icons/16/desktop.png) 0 0 no-repeat;
+}
+.bleext-settings-icon{
+	background:transparent url(../images/icons/16/System.png) 0 0 no-repeat;
+}
+.bleext-logout-icon{
+	background:transparent url(../images/icons/16/User.png) 0 0 no-repeat;
+}
+
+
+/* ACTIONS ICONS 32x32 */
+.save-action-icon{
+	background:transparent url('../images/icons/32/floppy_disk_48.png') 0 0 no-repeat;
+}
+.new-action-icon{
+	background:transparent url('../images/icons/32/paper_48.png') 0 0 no-repeat;
+}
+.delete-action-icon{
+	background:transparent url('../images/icons/32/cancel_48.png') 0 0 no-repeat;
+}
+.export-action-icon{
+	background:transparent url('../images/icons/32/paper_content_pencil_48.png') 0 0 no-repeat;
+}
+.print-action-icon{
+	background:transparent url('../images/icons/32/printer_48.png') 0 0 no-repeat;
+}
+.prev-action-icon{
+	background:transparent url('../images/icons/32/arrow_left_green_48.png') 0 0 no-repeat;
+}
+.next-action-icon{
+	background:transparent url('../images/icons/32/arrow_right_green_48.png') 0 0 no-repeat;
+}
+.search-name-action-icon{
+	background:transparent url('../images/icons/32/user_48.png') 0 0 no-repeat;
+}
+.search-rfc-action-icon{
+	background:transparent url('../images/icons/32/tabs_48.png') 0 0 no-repeat;
+}
+.search-phone-action-icon{
+	background:transparent url('../images/icons/32/app_48.png') 0 0 no-repeat;
+}
+.search-nip-action-icon{
+	background:transparent url('../images/icons/32/book_48.png') 0 0 no-repeat;
+}
+.close-action-icon{
+	background:transparent url('../images/icons/32/cross_48.png') 0 0 no-repeat;
+}
+
+/* ICONS 48x48 */
+.roles-app-shorcut-icon{
+	background:transparent url('../images/icons/48/im48x48.png') 0 0 no-repeat;
+}

@@ -1,0 +1,71 @@
+
+.bleext-toolbar-splitter{
+	cursor:move !important;
+}
+.bleext-toolbar-container{
+	border:none;
+}
+.bleext-window .x-window-body{
+	background-color:#fff;
+}
+.bleext-toolbar-button .x-btn-inner{
+	text-align:left;
+}
+.bleext-loading-module{
+	background:#fff url(../images/loading.gif) center center no-repeat;
+}
+.bleext-loading-module p{
+	text-align:center;
+	margin-top:180px;
+}
+.bleext-shortcuts-view{
+	padding:10px;
+}
+.bleext-shortcuts-view .bleext-shortcut{
+	width:48px;
+	margin:10px;
+	cursor:pointer;
+}
+.bleext-shortcuts-view .bleext-shortcut-over .bleext-shortcut-text {
+	text-decoration:underline;
+}
+.bleext-shortcuts-view .bleext-shortcut-icon img{
+	width:48px;
+	height:48px;
+}
+.bleext-shortcuts-view .bleext-shortcut .bleext-shortcut-text{
+	display:block;
+	width:48px;
+	text-align:center;
+	color:#fff;
+}
+.bleext-desktop-inactive-win{
+	  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	  filter: alpha(opacity=50);
+	  -moz-opacity: 0.5;
+	  -khtml-opacity: 0.5;
+	  opacity: 0.5;
+}
+.bleext-notification{
+	background:#000;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-khtml-border-radius: 10px; /* for old Konqueror browsers */
+	border-radius: 10px; /* future proofing */
+	
+	  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+	  filter: alpha(opacity=60);
+	  -moz-opacity: 0.6;
+	  -khtml-opacity: 0.6;
+	  opacity: 0.6;
+}
+.bleext-notification p{
+	font-weight:bold;
+	color:#fff;
+}
+.bleext-wallpaper-centered{
+	background:#fff center center no-repeat;
+}
+.bleext-wallpaper-tiled{
+	background:#fff 0 0 repeat;
+}

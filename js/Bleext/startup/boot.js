@@ -1,0 +1,32 @@
+
+
+if(Ext.isEmpty(Bleext.BASE_PATH)){
+	Bleext.log("Please set a correct value for the 'Bleext.BASE_PATH' constant!");
+	Ext.Msg.alert("Error!!","Please set a correct value for the 'Bleext.BASE_PATH' constant!");
+}
+
+Ext.Loader.setConfig({
+	enabled : true,
+	paths   : {
+		Bleext 	: Bleext.BASE_PATH+"js/Bleext",
+		Ext		: Bleext.BASE_PATH+"js/Ext"
+	} 
+});
+
+Ext.require("Bleext.abstract.MessageBox");
+Ext.require("Bleext.desktop.Application");
+
+Ext.onReady(function(){
+	
+	Bleext.App = Ext.create("Bleext.desktop.Application",{
+		listeners	: {
+			ready	: function(){
+				setTimeout(function(){
+					Ext.get("loading").remove();
+					Ext.get("loading-mask").fadeOut({remove:true});
+				},250)
+			}
+		}
+	});
+	
+});
