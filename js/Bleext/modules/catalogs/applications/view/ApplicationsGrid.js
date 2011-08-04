@@ -29,7 +29,7 @@ Ext.define("Bleext.modules.catalogs.applications.view.ApplicationsGrid",{
 		me.store = Ext.create("Bleext.modules.catalogs.applications.store.Applications");
 		
 		me.columns = [
-			{xtype:"treecolumn",text:"Name",dataIndex:"name",flex:1},
+			{xtype:"treecolumn",text:"Name",dataIndex:"text",flex:1},
 			{text:"Description",dataIndex:"description",flex:1},
 			{text:"Class",dataIndex:"class",flex:1}
 		];

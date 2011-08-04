@@ -32,13 +32,23 @@ class ApplicationBi{
 		
 		$temp = array();
 		foreach($apps as $app){
+			$iconCls = "";
+			if($app["configurations"]){
+				$conf = json_decode($app["configurations"]);
+				if($conf){
+					if(property_exists($conf,"iconCls")){
+						$iconCls = $conf->iconCls;
+					}
+				}
+			}
 			array_push($temp,array(
 				"text"			=> $app["name"],
 				"idApp"			=> $app["application_k"],
 				"idParent"		=> $app["application_parent_k"],
 				"class"			=> $app["class"],
 				"description"	=> $app["description"],
-				"config"		=> $app["configurations"]
+				"config"		=> $app["configurations"],
+				"iconCls"		=> $iconCls
 			));
 		}
 		

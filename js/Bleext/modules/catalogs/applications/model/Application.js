@@ -14,5 +14,5 @@ Ext.define("Bleext.modules.catalogs.applications.model.Application",{
 	extend		: "Ext.data.Model",
 	
 	idProperty	: "application_k",
-	fields		: ["application_k","application_parent_k","name","description","active","class","configurations"]
+	fields		: ["application_k","application_parent_k","text","description","active","class","configurations"]
 });

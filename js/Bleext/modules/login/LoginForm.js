@@ -84,7 +84,7 @@ Ext.define("Bleext.modules.login.LoginForm",{
 	onSuccess	: function(data,response){
 		if(data.success){
 			if(this.forward){
-				document.location = Bleext.BASE_PATH+data.url;
+				document.location = Bleext.desktop.Constants.DESKTOP_HOME_URL;
 			}else{
 				var win = this.up("window");
 				if(win){

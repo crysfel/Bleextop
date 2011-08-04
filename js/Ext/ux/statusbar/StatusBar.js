@@ -307,6 +307,7 @@ statusBar.setStatus({
             Ext.defer(this.clearStatus, wait, this, [c]);
         }
         this.doLayout();
+		this.statusEl.el.parent().highlight();
         return this;
     },
 

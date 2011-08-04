@@ -17,6 +17,7 @@ Ext.define("Bleext.desktop.Constants",{
 	DESKTOP_CONFIGURATION_URL	: Bleext.BASE_PATH+"index.php/desktop/config",
 	DESKTOP_LOGIN_URL			: Bleext.BASE_PATH+"index.php/login/validate",
 	DESKTOP_LOGOUT_URL			: Bleext.BASE_PATH+"index.php/login/logout",
+	DESKTOP_HOME_URL			: Bleext.BASE_PATH+"index.php/desktop/home",
 	
 	
 	LOGIN_IMAGE					: Bleext.BASE_PATH+"resources/images/login-image.jpg"
