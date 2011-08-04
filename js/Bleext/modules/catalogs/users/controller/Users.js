@@ -21,7 +21,6 @@ Ext.define("Bleext.modules.catalogs.users.controller.Users",{
 	models	: ["Bleext.modules.catalogs.users.model.User"],
 
 	init	: function() {
-		console.log("Test");
 		this.win = this.application.win;
 		
 		this.buildItems();
