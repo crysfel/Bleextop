@@ -1,6 +1,6 @@
 <h1>Bleextop</h1>
 
-  Bleextop is a Desktop solution for ExtJS4, the main idea is to provide a plataform that helps developers to start their own applications.
+Bleextop is a Desktop solution for ExtJS4, the main idea is to provide a platform that helps developers to start their own applications. This project works with Ext4 and CodeIgniter.
 
 <h2>Demo</h2>
 A demo version is located at: 
