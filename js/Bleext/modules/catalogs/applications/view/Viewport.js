@@ -22,6 +22,10 @@ Ext.define("Bleext.modules.catalogs.applications.view.Viewport",{
 	},
 	
 	buildItems	: function(){
+		var propertyGrid = Ext.create("Bleext.modules.catalogs.applications.view.ConfigurationsGrid",{
+			region	: "east",
+			width	: 200
+		});
 		var grid = Ext.create("Bleext.modules.catalogs.applications.view.ApplicationsGrid",{
 			region	: "south",
 			height	: 150
@@ -31,6 +35,6 @@ Ext.define("Bleext.modules.catalogs.applications.view.Viewport",{
 			region	: "center"
 		});
 		
-		return [grid,form];
+		return [grid,{layout:"border",region:"center",border:false,items:[form,propertyGrid]}];
 	}
 });

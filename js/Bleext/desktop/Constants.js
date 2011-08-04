@@ -19,6 +19,8 @@ Ext.define("Bleext.desktop.Constants",{
 	DESKTOP_LOGOUT_URL			: Bleext.BASE_PATH+"index.php/login/logout",
 	DESKTOP_HOME_URL			: Bleext.BASE_PATH+"index.php/desktop/home",
 	
+	DEFAULT_WINDOW_WIDTH		: 800,
+	DEFAULT_WINDOW_HEIGHT		: 480,
 	
 	LOGIN_IMAGE					: Bleext.BASE_PATH+"resources/images/login-image.jpg"
 	

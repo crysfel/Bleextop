@@ -64,29 +64,6 @@ Ext.define("Bleext.abstract.Viewport",{
 				action	: "print",
 				iconCls	: "print-action-icon"
 			}]
-		},{
-			xtype	: "buttongroup",
-			title	: "Search for",
-			itemId	: "search",
-			defaults: {scale: 'large',iconAlign:"top",width:45},
-			items	: [{
-				text	: "Name",
-				action	: "search_name",
-				iconCls	: "search-name-action-icon"
-			},{
-				text	: "ID",
-				action	: "search_id",
-				iconCls	: "search-rfc-action-icon"
-			}]
-		},'->',{
-			xtype	: "buttongroup",
-			title	: "Exit",
-			defaults: {scale: 'large',iconAlign:"top",width:45},
-			items	: [{
-				text	: "Close",
-				action	: "close",
-				iconCls	: "close-action-icon"
-			}]
 		}]
 	}
 });

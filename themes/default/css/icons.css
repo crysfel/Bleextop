@@ -52,7 +52,12 @@
 .bleext-logout-icon{
 	background:transparent url(../images/icons/16/User.png) 0 0 no-repeat;
 }
-
+.bleext-add-icon-16{
+	background:transparent url(../images/icons/16/add.png) 0 0 no-repeat;
+}
+.bleext-delete-icon-16{
+	background:transparent url(../images/icons/16/delete.png) 0 0 no-repeat;
+}
 
 /* ACTIONS ICONS 32x32 */
 .save-action-icon{

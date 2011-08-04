@@ -14,6 +14,7 @@ Ext.define("Bleext.modules.catalogs.applications.view.ApplicationsGrid",{
 	extend		: "Ext.tree.Panel",
 	requires	: ["Bleext.modules.catalogs.applications.store.Applications"],
 	
+	itemId		: "applicationsGrid",
 	title		: "Applications",
 	split		: true,
 	collapsible	: true,
@@ -29,7 +30,7 @@ Ext.define("Bleext.modules.catalogs.applications.view.ApplicationsGrid",{
 		me.store = Ext.create("Bleext.modules.catalogs.applications.store.Applications");
 		
 		me.columns = [
-			{xtype:"treecolumn",text:"Name",dataIndex:"text",flex:1},
+			{xtype:"treecolumn",text:"Name",dataIndex:"name",width:180},
 			{text:"Description",dataIndex:"description",flex:1},
 			{text:"Class",dataIndex:"class",flex:1}
 		];

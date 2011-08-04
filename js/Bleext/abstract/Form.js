@@ -20,10 +20,9 @@ Ext.define("Bleext.abstract.Form",{
 		msgTarget	: 'side',
 		width		: 180
 	},
-	layout			: {
-		type	: 'table'
-	},
-	bodyPadding	: 5,
+	layout			: 'anchor',
+	bodyPadding		: 5,
+	autoScroll		: true,
 
 	initComponent	: function(){
 		this.layout.columns = this.columns;

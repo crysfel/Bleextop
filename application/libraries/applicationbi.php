@@ -43,11 +43,13 @@ class ApplicationBi{
 			}
 			array_push($temp,array(
 				"text"			=> $app["name"],
-				"idApp"			=> $app["application_k"],
-				"idParent"		=> $app["application_parent_k"],
+				"name"			=> $app["name"],
+				"application_k"	=> $app["application_k"],
+				"application_parent_k"=> $app["application_parent_k"],
 				"class"			=> $app["class"],
 				"description"	=> $app["description"],
-				"config"		=> $app["configurations"],
+				"configurations"=> $app["configurations"],
+				"active"		=> $app["active"],
 				"iconCls"		=> $iconCls
 			));
 		}
@@ -55,9 +57,9 @@ class ApplicationBi{
 		// Creating the Tree
 		$tree = new Tree();
 		$tree->setChildProperty($text);
-		$tree->setIdProperty("idApp");
+		$tree->setIdProperty("application_k");
 		foreach($temp as $app){
-			$tree->addChild($app,$app["idParent"]);
+			$tree->addChild($app,$app["application_parent_k"]);
 		}
 		return $tree;
 	}
