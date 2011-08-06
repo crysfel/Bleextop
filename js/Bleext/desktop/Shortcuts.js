@@ -54,8 +54,8 @@ Ext.define("Bleext.desktop.Shortcuts",{
 				if(app.menu){
 					this.getShorcuts(app.menu);
 				}else{
-					if(app.config){
-						var config = Ext.decode(app.config);
+					if(app.configurations){
+						var config = Ext.decode(app.configurations);
 						if(config && config.shorcutIconCls){
 							app.iconCls = config.shorcutIconCls;
 							this.store.add(app);

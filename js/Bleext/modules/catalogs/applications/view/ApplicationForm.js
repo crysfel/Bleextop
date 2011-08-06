@@ -27,8 +27,12 @@ Ext.define("Bleext.modules.catalogs.applications.view.ApplicationForm",{
 			xtype	: "fieldset",
 			defaults	: {xtype:"textfield",anchor	: '100%'},
 			items	: [{
+				xtype		: "hidden",
+				name		: "application_k"
+			},{
 				fieldLabel	: "Name",
-				name		: "name"
+				name		: "name",
+				allowBlank	: false
 			},{
 				fieldLabel	: "Controller",
 				name		: "class"

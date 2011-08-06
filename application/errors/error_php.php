@@ -1,8 +1,8 @@
 {
-	success	: false,
-	code	: 500,
-	message	: "Sorry for the inconvenience but there was a system error",
-	info	: 'A PHP Error was encountered
+	"success"	: false,
+	"code"		: 500,
+	"message"	: "Sorry for the inconvenience but there was a system error",
+	"info"	: 'A PHP Error was encountered
 		* Severity: <?php echo $severity; ?>
 		* Message:  <?php echo $message; ?>
 		* Filename: <?php echo $filepath; ?>

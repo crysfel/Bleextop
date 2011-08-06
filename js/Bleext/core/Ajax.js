@@ -124,12 +124,6 @@ Ext.define("Bleext.core.Ajax",{
 		if(options.el){
 			options.el.unmask();
 		}
-		if(options.statusBar){
-			options.statusBar.setStatus({
-				text	: options.successMsg || "Action completed",
-				iconCls	: ''
-			});
-		}
 		
 		if(response.status === 200){
 			var data = {success:false};
@@ -139,6 +133,12 @@ Ext.define("Bleext.core.Ajax",{
 
 			if(data.success){
 				if(options && options.onSuccessCallback){
+					if(options.statusBar){
+						options.statusBar.setStatus({
+							text	: options.successMsg || "Action completed",
+							iconCls	: 'x-status-valid'
+						});
+					}
 					options.onSuccessCallback.call(options.scope,data,options);
 				}
 			}else{
@@ -155,12 +155,7 @@ Ext.define("Bleext.core.Ajax",{
 		if(options.el){
 			options.el.unmask();
 		}
-		if(options.statusBar){
-			options.statusBar.setStatus({
-				text	: options.errorMsg || "There was an error",
-				iconCls	: ''
-			});
-		}
+		
 		var data;
 		try{
 			data = Ext.decode(response.responseText);
@@ -197,6 +192,13 @@ Ext.define("Bleext.core.Ajax",{
 		}
 		//show notification!
 		this.fireEvent("showerror",data);
+		
+		if(options.statusBar){
+			options.statusBar.setStatus({
+				text	: data.message || "There was an error",
+				iconCls	: 'x-status-error'
+			});
+		}
 		
 		if(options && options.onFailureCallback){
 			options.onFailureCallback.call(options.scope,data,options);

@@ -14,7 +14,7 @@ Ext.define("Bleext.modules.catalogs.applications.controller.Application",{
 	extend		: "Ext.app.Controller",
 	views		: [
 		"Bleext.modules.catalogs.applications.view.Viewport",
-		"Bleext.modules.catalogs.applications.view.ApplicationsGrid",
+		"Bleext.modules.catalogs.applications.view.ApplicationsTree",
 		"Bleext.modules.catalogs.applications.view.ApplicationForm",
 		"Bleext.modules.catalogs.applications.view.ConfigurationsGrid"
 	],
@@ -26,10 +26,54 @@ Ext.define("Bleext.modules.catalogs.applications.controller.Application",{
         this.win.add(Ext.create("Bleext.modules.catalogs.applications.view.Viewport"));
 
 		this.control({
-			"#application treepanel[itemId=applicationsGrid]"	: {
+			"#application treepanel[itemId=applicationsTree]"	: {
 				itemclick	: this.editApplication
+			},
+			"#application button[action=new]"	: {
+				click		: this.clearForm
+			},
+			"#application button[action=save]"	: {
+				click		: this.saveApplication
 			}
 		});
+	},
+	
+	clearForm		: function(){
+		var form = this.win.down("form"),
+			props = this.win.down("propertygrid");
+			
+		form.getForm().reset();
+		props.setSource({
+			iconCls			: "",
+			width			: Bleext.desktop.Constants.DEFAULT_WINDOW_WIDTH,
+			height			: Bleext.desktop.Constants.DEFAULT_WINDOW_HEIGHT,
+			shorcutIconCls	: ""
+		});
+	},
+	
+	saveApplication	: function(){
+		var form = this.win.down("form"),
+			props = this.win.down("propertygrid"),
+			params = form.getValues(),
+			tree = this.win.down("treepanel");
+		
+		if(form.getForm().isValid()){
+			params.configurations = Ext.encode(props.getSource());	
+
+			Bleext.Ajax.request({
+				url			: Bleext.BASE_PATH+"index.php/catalogs/applications/saveapp",
+				statusBar 	: this.win.statusBar,
+				params		: {data:Ext.encode(params)},
+				success		: function(data){
+					tree.getStore().load();
+				}
+			});
+		}else{
+			this.win.statusBar.setStatus({
+				text	: "There's a few error in the form, please make sure everything is fine",
+				iconCls	: 'x-status-error'
+			});
+		}
 	},
 	
 	editApplication	: function(tree,record){
@@ -41,8 +85,10 @@ Ext.define("Bleext.modules.catalogs.applications.controller.Application",{
 
 		form.loadRecord(record);
 		props.setSource(Ext.applyIf(configs,{
-			width	: Bleext.desktop.Constants.DEFAULT_WINDOW_WIDTH,
-			height	: Bleext.desktop.Constants.DEFAULT_WINDOW_HEIGHT
+			iconCls			: "",
+			width			: Bleext.desktop.Constants.DEFAULT_WINDOW_WIDTH,
+			height			: Bleext.desktop.Constants.DEFAULT_WINDOW_HEIGHT,
+			shorcutIconCls	: ""
 		}));
 	}
 });

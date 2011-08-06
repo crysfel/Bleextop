@@ -21,7 +21,8 @@ Ext.define("Bleext.abstract.TreeStore",{
 		
         me.proxy = {
 			type	: "ajax",
-			url		: Bleext.BASE_PATH + "index.php/"+me.url
+			url		: Bleext.BASE_PATH + "index.php/"+me.url,
+			params	: this.params
 		};
 		
 		me.callParent();

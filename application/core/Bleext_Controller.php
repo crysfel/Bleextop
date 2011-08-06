@@ -3,7 +3,7 @@
 
 class  Bleext_Controller extends CI_Controller{
 
-	function __construct(){
+	function Bleext_Controller(){
 		parent::__construct();
 		
 		$isLogged = $this->session->userdata("is_logged_in");

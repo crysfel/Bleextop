@@ -24,17 +24,18 @@ Ext.define("Bleext.modules.catalogs.applications.view.Viewport",{
 	buildItems	: function(){
 		var propertyGrid = Ext.create("Bleext.modules.catalogs.applications.view.ConfigurationsGrid",{
 			region	: "east",
-			width	: 200
+			width	: 200,
+			collapsed:true
 		});
-		var grid = Ext.create("Bleext.modules.catalogs.applications.view.ApplicationsGrid",{
-			region	: "south",
-			height	: 150
+		var tree = Ext.create("Bleext.modules.catalogs.applications.view.ApplicationsTree",{
+			region	: "west",
+			width	: 200
 		});
 		
 		var form = Ext.create("Bleext.modules.catalogs.applications.view.ApplicationForm",{
 			region	: "center"
 		});
 		
-		return [grid,{layout:"border",region:"center",border:false,items:[form,propertyGrid]}];
+		return [tree,{layout:"border",region:"center",border:false,items:[form,propertyGrid]}];
 	}
 });

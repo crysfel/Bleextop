@@ -42,7 +42,7 @@ Ext.define("Bleext.desktop.WindowManager",{
             };
 		
 		try{
-			var customCfg = Ext.decode(app.config);
+			var customCfg = Ext.decode(app.configurations);
 			Ext.apply(cfg,customCfg || {});
 		}catch(e){}
 

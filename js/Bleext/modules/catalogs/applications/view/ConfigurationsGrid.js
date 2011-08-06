@@ -15,25 +15,16 @@ Ext.define("Bleext.modules.catalogs.applications.view.ConfigurationsGrid",{
 	
 	itemId		: "configurations",
 	title		: "Configurations",
+	iconCls		: "bleext-gear-icon",
 	split		: true,
 	collapsible	: true,
 	border		: false,
 	autoScroll	: true,
 	
 	source		: {
-		iconCls	: "",
-		width	: Bleext.desktop.Constants.DEFAULT_WINDOW_WIDTH,
-		height	: Bleext.desktop.Constants.DEFAULT_WINDOW_HEIGHT
-	},
-
-	initComponent	: function() {
-		var me = this;
-		
-		me.tbar = [
-			{text:"Add",iconCls:"bleext-add-icon-16",action:"add-property"},
-			{text:"Remove",iconCls:"bleext-delete-icon-16",action:"remove-property"}
-		];
-        
-		me.callParent();
+		iconCls			: "",
+		width			: Bleext.desktop.Constants.DEFAULT_WINDOW_WIDTH,
+		height			: Bleext.desktop.Constants.DEFAULT_WINDOW_HEIGHT,
+		shorcutIconCls	: ""
 	}
 });

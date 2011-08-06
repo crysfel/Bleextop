@@ -40,11 +40,11 @@ CREATE TABLE IF NOT EXISTS `applications` (
 -- Dumping data for table `applications`
 --
 
-INSERT INTO `applications` (`application_k`, `application_parent_k`, `name`, `description`, `class`, `configurations`, `active`) VALUES
-('administration', '', 'Administration', 'Administration folder', '', '', 1),
-('applications', 'administration', 'Applications', 'Applications catalog', 'Bleext.modules.catalogs.applications.controller.Application', '{\r\n   iconCls:"applications-icon"\r\n}', 1),
-('roles', 'administration', 'Roles', 'Roles catalog', 'Bleext.modules.catalogs.roles.controller.Roles', '{\r\n   iconCls : ''roles-icon''\r\n}', 1),
-('users', 'administration', 'Users', 'Users module', 'Bleext.modules.catalogs.users.controller.Users', '{\r\n   iconCls : ''users-icon'',\r\n   shorcutIconCls : ''roles-app-shorcut-icon''\r\n}', 1);
+INSERT INTO `applications` (`application_parent_k`, `name`, `description`, `class`, `configurations`, `active`) VALUES
+(null,'Administration', 'Administration folder', '', '', 1),
+(1, 'Applications', 'Applications catalog', 'Bleext.modules.catalogs.applications.controller.Application', '{\r\n   "iconCls":"applications-icon"\r\n}', 1),
+(1, 'Roles', 'Roles catalog', 'Bleext.modules.catalogs.roles.controller.Roles', '{\r\n   "iconCls" : "roles-icon"\r\n}', 1),
+(1, 'Users', 'Users module', 'Bleext.modules.catalogs.users.controller.Users', '{\r\n   "iconCls" : "users-icon",\r\n   "shorcutIconCls" : "roles-app-shorcut-icon"\r\n}', 1);
 
 -- --------------------------------------------------------
 

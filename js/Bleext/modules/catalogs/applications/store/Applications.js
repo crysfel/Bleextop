@@ -13,5 +13,6 @@
 Ext.define("Bleext.modules.catalogs.applications.store.Applications",{
 	extend		: "Bleext.abstract.TreeStore",
 	model		: "Bleext.modules.catalogs.applications.model.Application",
-	url			: "catalogs/applications/getAll"
+	url			: "catalogs/applications/getActives",
+	nodeParam	: "application_k"
 });

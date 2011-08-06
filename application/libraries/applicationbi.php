@@ -1,14 +1,20 @@
 <?php
 
-class ApplicationBi{
+
+require_once(BASEPATH.'../application/core/BleextBI'.EXT);
+
+class ApplicationBI extends BleextBI{
+	
+	function ApplicationBI(){
+		parent::BleextBI();
+		
+		$this->instance->load->model("applicationdao");
+		$this->appdao = $this->instance->applicationdao;
+	}
 	
 	public function getApplications($params){
-		$CI =& get_instance();
 		
-		$CI->load->model("applicationdao");
-		
-		
-		$apps = $CI->applicationdao->getApplications($params);
+		$apps = $this->appdao->getApplications($params);
 		
 		$tree = $this->buildTree($apps,"menu");
 		
@@ -17,13 +23,23 @@ class ApplicationBi{
 	}
 	
 	public function getTree(){
-		$CI =& get_instance();
-		$CI->load->model("applicationdao");
 		
-		$apps = $CI->applicationdao->getAll();
+		$apps = $this->appdao->getAll();
+		
 		$tree = $this->buildTree($apps,"children");
 		
 		return $tree->getRoot();
+	}
+	
+	public function save($form){
+		$form->date_updated = date("Y-m-d h:i:s");
+		$form->date_created = date("Y-m-d h:i:s");
+		$this->appdao->save($form);
+	}
+	
+	public function update($form){
+		$form->date_updated = date("Y-m-d h:i:s");
+		$this->appdao->update($form);
 	}
 	
 	private function buildTree($apps,$text){

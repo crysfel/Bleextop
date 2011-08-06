@@ -32,11 +32,14 @@
 .applications-icon{
 	background:transparent url(../images/icons/16/applications-blue.png) 0 0 no-repeat;
 }
+.permissions-icon{
+	background:transparent url(../images/icons/16/user-detective.png) 0 0 no-repeat;
+}
 
 
 
 
-/* START MENU 16x16 icons */
+/* SYSTEM ICONS 16x16 */
 .bleext-start-button-icon{
 	background:transparent url(../images/startmenu/bleext-logo-small.png) 0 center no-repeat !important;
 }
@@ -49,6 +52,9 @@
 .bleext-settings-icon{
 	background:transparent url(../images/icons/16/System.png) 0 0 no-repeat;
 }
+.bleext-gear-icon{
+	background:transparent url(../images/icons/16/gear.png) 0 0 no-repeat;
+}
 .bleext-logout-icon{
 	background:transparent url(../images/icons/16/User.png) 0 0 no-repeat;
 }
@@ -58,6 +64,7 @@
 .bleext-delete-icon-16{
 	background:transparent url(../images/icons/16/delete.png) 0 0 no-repeat;
 }
+
 
 /* ACTIONS ICONS 32x32 */
 .save-action-icon{
