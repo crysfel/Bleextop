@@ -14,7 +14,7 @@ Ext.define("Bleext.desktop.Wallpaper",{
 	extend				: "Ext.Component",
 	alternateClassName	: "Bleext.Wallpaper" ,
 	
-	static				: {
+	statics				: {
 		CENTERED	: "centered",
 		TILED		: "tiled",
 		STRETCH		: "stretch"

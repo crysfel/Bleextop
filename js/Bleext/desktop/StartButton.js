@@ -17,7 +17,7 @@ Ext.define("Bleext.desktop.StartButton",{
 	cls			: "bleext-start-button",
 	iconCls		: "bleext-start-button-icon",
 	
-	text		: "Start",
+	text		: "Start"
 	
 
 });
