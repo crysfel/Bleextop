@@ -16,9 +16,9 @@ class UserDAO extends CI_Model{
 		return $rs->row_array();
 	}
 	
-	function getAll(){
-		$rs = $this->db->get("users");
-		//$this->db->query("select * from (select campo1,campo2 from tabla) B where nombre=$nombre");
+	function getAll($params = array(0,25)){
+		$rs = $this->db->query("select U.*,(select count(*) from users) as total from users U limit ?,?",$params);
+
 		return $rs->result_array();
 	}
 }

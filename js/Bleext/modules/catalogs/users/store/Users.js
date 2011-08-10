@@ -13,6 +13,6 @@
 Ext.define("Bleext.modules.catalogs.users.store.Users",{
 	extend		: "Bleext.abstract.Store",
 	model		: "Bleext.modules.catalogs.users.model.User",
-	url			: "users/getall"
+	url			: "catalogs/users/getall"
 	
 });

@@ -6,7 +6,7 @@ class Roles extends Bleext_Controller{
 		$this->load->model("roledao");
 		
 		$this->response(true,array(
-			"data"	=> $this->roledao->getAllRoles()
+			"data"	=> $this->roledao->getAll()
 		));
 		
 	}

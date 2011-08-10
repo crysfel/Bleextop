@@ -2,10 +2,15 @@
 
 class Users extends Bleext_Controller{
 	
-	public function getall(){
-		$this->load->model("userdao");
+	function Users(){
+		parent::Bleext_Controller();
 		
-		$users = $this->userdao->getAll();
+		$this->load->library("userbi");
+	}
+	
+	public function getall(){
+		
+		$users = $this->userbi->getAll();
 		
 		$this->response(true,array(
 			"data"	=> $users

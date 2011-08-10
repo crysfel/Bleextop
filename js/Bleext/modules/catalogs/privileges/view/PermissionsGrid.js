@@ -10,9 +10,9 @@
  *
  **/
 
-Ext.define("Bleext.modules.catalogs.permissions.view.PermissionsGrid",{
+Ext.define("Bleext.modules.catalogs.privileges.view.PermissionsGrid",{
 	extend		: "Bleext.abstract.Grid",
-	store		: "Bleext.modules.catalogs.permissions.store.Permissions",
+	store		: "Bleext.modules.catalogs.privileges.store.Permissions",
 	
 	title		: "Application Permissions",
 	split		: true,

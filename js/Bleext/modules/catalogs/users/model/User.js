@@ -19,7 +19,9 @@ Ext.define("Bleext.modules.catalogs.users.model.User",{
 		"name",
 		"lastname",
 		"email",
-		"active"
+		"avatar",
+		"active",
+		{name:"base_path",defaultValue:Bleext.desktop.Constants.USERS_AVATAR_PATH}
 	]
 	
 });

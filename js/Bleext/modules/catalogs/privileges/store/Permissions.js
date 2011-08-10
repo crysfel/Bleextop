@@ -10,9 +10,9 @@
  *
  **/
 
-Ext.define("Bleext.modules.catalogs.permissions.store.Permissions",{
+Ext.define("Bleext.modules.catalogs.privileges.store.Permissions",{
 	extend		: "Bleext.abstract.Store",
 	url			: "catalogs/permissions/getAll",
-	model		: "Bleext.modules.catalogs.permissions.model.Permission"
+	model		: "Bleext.modules.catalogs.privileges.model.Permission"
 	
 });

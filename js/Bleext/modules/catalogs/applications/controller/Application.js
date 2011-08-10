@@ -11,7 +11,7 @@
  **/
 
 Ext.define("Bleext.modules.catalogs.applications.controller.Application",{
-	extend		: "Ext.app.Controller",
+	extend		: "Bleext.abstract.Controller",
 	views		: [
 		"Bleext.modules.catalogs.applications.view.Viewport",
 		"Bleext.modules.catalogs.applications.view.ApplicationsTree",
@@ -21,24 +21,17 @@ Ext.define("Bleext.modules.catalogs.applications.controller.Application",{
 	models		: ["Bleext.modules.catalogs.applications.model.Application"],
 	stores		: ["Bleext.modules.catalogs.applications.store.Applications"],
 
-	init	: function() {
-		this.win = this.application.win;
-        this.win.add(Ext.create("Bleext.modules.catalogs.applications.view.Viewport"));
-
+	init	: function(){
+		this.callParent();
+		
 		this.control({
 			"#application treepanel[itemId=applicationsTree]"	: {
 				itemclick	: this.editApplication
-			},
-			"#application button[action=new]"	: {
-				click		: this.clearForm
-			},
-			"#application button[action=save]"	: {
-				click		: this.saveApplication
 			}
 		});
 	},
 	
-	clearForm		: function(){
+	add		: function(){
 		var form = this.win.down("form"),
 			props = this.win.down("propertygrid");
 			
@@ -51,7 +44,7 @@ Ext.define("Bleext.modules.catalogs.applications.controller.Application",{
 		});
 	},
 	
-	saveApplication	: function(){
+	save	: function(){
 		var form = this.win.down("form"),
 			props = this.win.down("propertygrid"),
 			params = form.getValues(),
@@ -90,5 +83,9 @@ Ext.define("Bleext.modules.catalogs.applications.controller.Application",{
 			height			: Bleext.desktop.Constants.DEFAULT_WINDOW_HEIGHT,
 			shorcutIconCls	: ""
 		}));
+	},
+	
+	setViewport	: function(){
+        this.win.add(Ext.create("Bleext.modules.catalogs.applications.view.Viewport"));
 	}
 });

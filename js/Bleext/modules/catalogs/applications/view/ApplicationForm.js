@@ -45,6 +45,8 @@ Ext.define("Bleext.modules.catalogs.applications.view.ApplicationForm",{
 				name		: "active",
 				boxLabel	: "Active",
 				hideEmptyLabel 	: false,
+				inputValue	: 1,
+				uncheckedValue: 0,
 				labelSeparator 	: "",
 				fieldLabel		: ""
 			}]

@@ -15,8 +15,9 @@ Ext.define("Bleext.modules.catalogs.roles.model.Role",{
 	
 	idProperty	: "role_k",
 	fields		: [
-		"role_k",
-		{name:"nombre",mapping:"name"},
-		{name:"descripcion",mapping:"description"}
+		{name:"role_k",type:"int"},
+		{name:"users",type:"int"},
+		{name:"name"},
+		{name:"description"}
 	]
 });

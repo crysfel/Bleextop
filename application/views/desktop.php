@@ -21,6 +21,7 @@
 	<link rel="stylesheet" href="<?php echo base_url(); ?>js/Ext/resources/css/ext-all.css" type="text/css" media="screen" charset="utf-8" />
 	<link rel="stylesheet" href="<?php echo base_url(); ?>themes/default/css/bleextop.css" type="text/css" media="screen" title="no title" charset="utf-8">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>js/Ext/ux/statusbar/css/statusbar.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>themes/default/css/modules.css" type="text/css" media="screen" title="no title" charset="utf-8">
 
 	<link rel="stylesheet" href="<?php echo base_url(); ?>themes/default/css/icons.css" type="text/css" media="screen" title="no title" charset="utf-8">
 	<script type="text/javascript">document.getElementById('msg').innerHTML = 'Please wait: Loading ExtJS files';</script> 

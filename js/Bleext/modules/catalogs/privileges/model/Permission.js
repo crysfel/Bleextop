@@ -10,7 +10,7 @@
  *
  **/
 
-Ext.define("Bleext.modules.catalogs.permissions.model.Permission",{
+Ext.define("Bleext.modules.catalogs.privileges.model.Permission",{
 	extend		: "Ext.data.Model",
 	
 	idProperty	: "permission_k",
