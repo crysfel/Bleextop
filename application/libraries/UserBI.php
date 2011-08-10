@@ -14,4 +14,8 @@ class UserBI extends BleextBI{
 		return $this->instance->userdao->getAll();
 	}
 	
+	public function save($form){
+		
+	}
+	
 }
