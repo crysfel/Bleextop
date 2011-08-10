@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 10, 2011 at 05:42 AM
+-- Generation Time: Aug 10, 2011 at 11:40 PM
 -- Server version: 5.1.44
 -- PHP Version: 5.3.1
 
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `applications` (
   `application_parent_k` int(11) DEFAULT NULL,
   `name` varchar(200) NOT NULL,
   `description` text NOT NULL,
-  `class` varchar(255) NOT NULL,
+  `klass` varchar(255) NOT NULL,
   `configurations` text NOT NULL,
   `date_created` datetime NOT NULL,
   `date_updated` datetime NOT NULL,
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `applications` (
 -- Dumping data for table `applications`
 --
 
-INSERT INTO `applications` (`application_k`, `application_parent_k`, `name`, `description`, `class`, `configurations`, `date_created`, `date_updated`, `active`) VALUES
+INSERT INTO `applications` (`application_k`, `application_parent_k`, `name`, `description`, `klass`, `configurations`, `date_created`, `date_updated`, `active`) VALUES
 (1, NULL, 'Administration', 'Administration folder', '', '{"iconCls":"","width":800,"height":480,"shorcutIconCls":""}', '2011-08-09 11:03:53', '2011-08-09 11:03:53', 1),
 (2, 1, 'Applications', 'Applications catalog', 'Bleext.modules.catalogs.applications.controller.Application', '{\r\n   "iconCls":"applications-icon"\r\n}', '2011-08-09 11:03:53', '2011-08-09 11:03:53', 1),
 (3, 1, 'Roles', 'Roles catalog', 'Bleext.modules.catalogs.roles.controller.Roles', '{"iconCls":"roles-icon","width":800,"height":480,"shorcutIconCls":""}', '2011-08-09 11:03:53', '2011-08-09 11:16:10', 1),
