@@ -34,6 +34,10 @@ Ext.define("Bleext.abstract.Controller",{
 		me.control(actions);
 	},
 	
+	showError	: function(){
+		
+	},
+	
 	setViewport	: Ext.emptyFn,
 	add			: Ext.emptyFn,
 	save		: Ext.emptyFn,
