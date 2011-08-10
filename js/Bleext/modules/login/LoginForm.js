@@ -45,7 +45,7 @@ Ext.define("Bleext.modules.login.LoginForm",{
 				name		: "username",
 				allowBlank	: false,
 				flex		: 1,
-				margins		: {right:3},
+				margins		: {right:3}
 			},{
 				labelAlign	: "top",
 				msgTarget	: 'side',
