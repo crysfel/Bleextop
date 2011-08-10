@@ -47,14 +47,14 @@ Ext.define("Bleext.desktop.WindowManager",{
 		}catch(e){}
 
 		try{
-			if(!app.class){
+			if(!app.klass){
 				Bleext.App.showNotification({
 					message	: "The application was not found! please report this problem to your administration."
 				});
 				return false;
 			}
 			
-			var arr = app.class.split(".");
+			var arr = app.klass.split(".");
 			appname = arr[0];
 			name = arr[arr.length-1];
 			cfg.id = name.toLowerCase();
@@ -104,7 +104,7 @@ Ext.define("Bleext.desktop.WindowManager",{
 		Ext.application({
 		    name		: appname,
 			appFolder	: Bleext.BASE_PATH+'js/'+appname,
-			controllers : [app.class],
+			controllers : [app.klass],
 			win			: win,
 			scope		: this,
 		    launch		: function() {

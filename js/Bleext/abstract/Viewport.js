@@ -64,6 +64,6 @@ Ext.define("Bleext.abstract.Viewport",{
 				action	: "print",
 				iconCls	: "print-action-icon"
 			}]
-		}]
+		}];
 	}
 });

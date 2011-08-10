@@ -21,7 +21,7 @@ Ext.define("Bleext.modules.catalogs.applications.model.Application",{
 		"name",
 		"description",
 		"active",
-		"class",
+		"klass",
 		"configurations"
 	]
 });

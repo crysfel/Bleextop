@@ -62,7 +62,7 @@ class ApplicationBI extends BleextBI{
 				"name"			=> $app["name"],
 				"application_k"	=> $app["application_k"],
 				"application_parent_k"=> $app["application_parent_k"],
-				"class"			=> $app["class"],
+				"klass"			=> $app["klass"],
 				"description"	=> $app["description"],
 				"configurations"=> $app["configurations"],
 				"active"		=> $app["active"],

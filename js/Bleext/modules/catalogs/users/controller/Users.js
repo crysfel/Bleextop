@@ -67,7 +67,7 @@ Ext.define("Bleext.modules.catalogs.users.controller.Users",{
 		var grid = this.win.down("panel[region=center]"),
 			records = grid.getSelectionModel().getSelection();
 			
-		console.log(records);
+		//console.log(records);
 	},
 	
 	buildItems	: function(){
