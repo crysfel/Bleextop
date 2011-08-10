@@ -19,4 +19,4 @@ Ext.define("Bleext.core.Log",{
 	}
 });
 
-Bleext.log = Bleext.core.Log.log
+Bleext.log = Bleext.core.Log.log;

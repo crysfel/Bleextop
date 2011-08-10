@@ -34,7 +34,7 @@ Ext.define("Bleext.desktop.Window",{
 			defaultText	: "Ready"
 		});
 		
-		this.dockedItems = [this.statusBar]
+		this.dockedItems = [this.statusBar];
         
 		me.callParent();
 	},
