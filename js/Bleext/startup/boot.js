@@ -8,8 +8,8 @@ if(Ext.isEmpty(Bleext.BASE_PATH)){
 Ext.Loader.setConfig({
 	enabled : true,
 	paths   : {
-		Bleext 	: Bleext.BASE_PATH+"js/Bleext",
-		Ext		: Bleext.BASE_PATH+"js/Ext"
+		Bleext 	: Bleext.desktop.Constants.JS_PATH+"Bleext",
+		Ext		: Bleext.desktop.Constants.JS_PATH+"Ext"
 	} 
 });
 

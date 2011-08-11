@@ -36,9 +36,9 @@ Ext.define("Bleext.desktop.WindowManager",{
 	
 	createWindow	: function(app){
 		var me = this, 
-			win, cls, appname ,name,
+			win,
 			cfg = {
-				title			: app.text
+				title	: app.text
             };
 		
 		try{
@@ -46,30 +46,15 @@ Ext.define("Bleext.desktop.WindowManager",{
 			Ext.apply(cfg,customCfg || {});
 		}catch(e){}
 
-		try{
-			if(!app.klass){
-				Bleext.App.showNotification({
-					message	: "The application was not found! please report this problem to your administration."
-				});
-				return false;
-			}
-			
-			var arr = app.klass.split(".");
-			appname = arr[0];
-			name = arr[arr.length-1];
-			cfg.id = name.toLowerCase();
-
-			if(me.windows.containsKey(cfg.id)){
-				var w = me.windows.get(cfg.id);
-				w.show();
-				return false;
-			}
-		}catch(e){
-			Bleext.log(e);
-			Bleext.App.showNotification({
-				message	: "There was an error loading this application"
-			});
+		
+		if(!app.klass){
 			return false;
+		}
+
+		cfg.id = name.toLowerCase();
+
+		if(me.windows.containsKey(cfg.id)){	//if windows exist
+			return me.windows.get(cfg.id);
 		}
 		
         win = Ext.create("Bleext.desktop.Window",cfg);
@@ -99,19 +84,6 @@ Ext.define("Bleext.desktop.WindowManager",{
             },
             single: true
         });
-
-		this.loader.show();
-		Ext.application({
-		    name		: appname,
-			appFolder	: Bleext.BASE_PATH+'js/'+appname,
-			controllers : [app.klass],
-			win			: win,
-			scope		: this,
-		    launch		: function() {
-				this.loader.hide();
-				win.show();
-		    }
-		});
 		
         return win;
 	},

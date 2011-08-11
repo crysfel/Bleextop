@@ -17,21 +17,33 @@ Ext.define("Bleext.abstract.Controller",{
 	init	: function() {
 		var me = this,
 			actions = {};
-			
-		me.win = me.application.win;
+
 		me.setViewport();
 		
-		actions["#"+this.win.id+" button[action=new]"] = {
-			click		: me.add
-		};
-		actions["#"+this.win.id+" button[action=save]"] = {
-			click		: me.save
-		};
-		actions["#"+this.win.id+" button[action=delete]"] = {
-			click		: me.remove
-		};
-		
-		me.control(actions);
+		me.control({
+			"button[action=new]"	: {
+				click		: me.add
+			},
+			"button[action=save]" : {
+				click		: me.save
+			},
+			"button[action=delete]" : {
+				click		: me.remove
+			}
+		});
+	},
+	
+	control		: function(actions){
+		if(Ext.isObject(actions)){
+			var obj = {};
+			Ext.Object.each(actions,function(selector){
+				obj["#"+this.win.id+" "+selector] = actions[selector];
+			},this);
+			delete actions;
+			this.callParent([obj]);
+		}else{
+			this.callParent(arguments);
+		}
 	},
 	
 	showError	: function(){

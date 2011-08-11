@@ -25214,9 +25214,8 @@ Ext.define('Ext.app.EventBus', {
                     delete options.fn;
                     delete options.scope;
                 }
-                
-                event.addListener(listener, scope, options);
 
+                event.addListener(listener, scope, options);
                 
                 bus[ev] = bus[ev] || {};
                 bus[ev][selector] = bus[ev][selector] || {};

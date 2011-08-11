@@ -1,6 +1,6 @@
 /**
  * @class Bleext.desktop.Application
- * @extends Ext.util.Observable
+ * @extends Ext.app.Application
  * requires Bleext.desktop.Desktop
  * @autor Crysfel Villa
  * @date Thu Jul 28 20:43:15 CDT 2011
@@ -11,7 +11,10 @@
  **/
 
 Ext.define("Bleext.desktop.Application",{
-	extend		: "Ext.util.Observable",
+	extend 		: "Ext.app.Application",
+	mixins		: {
+		observable	: "Ext.util.Observable"
+	},
 	requires	: [
 		"Bleext.desktop.Desktop",
 		"Bleext.desktop.Notification"
@@ -27,16 +30,16 @@ Ext.define("Bleext.desktop.Application",{
 		});
 
 		me.callParent(arguments);
-
+		
 		Bleext.Ajax.request({
 			url		: Bleext.Constants.DESKTOP_CONFIGURATION_URL,
 			scope	: this,
-			success	: this.init,
+			success	: this.buildDesktop,
 			failure	: this.onError
 		});
 	},
 	
-	init	: function(data){
+	buildDesktop	: function(data){
 		var me = this;
 
         if (me.useQuickTips) {
@@ -62,7 +65,30 @@ Ext.define("Bleext.desktop.Application",{
 	 * @param {Ext.menu.Item} item The item licked in the menu
 	 */
 	runApplication	: function(item) {
-		this.desktop.windowMgr.createWindow(item.initialConfig);
+		var app = item.initialConfig,
+			win = this.desktop.windowMgr.createWindow(app),
+			me	= this;
+		
+		if(win){
+			var arr = app.klass.split("."),
+				appname = arr[0];
+			
+			me.desktop.windowMgr.loader.show();
+			Ext.Loader.setPath(appname,Bleext.desktop.Constants.JS_PATH+appname);
+			Ext.Loader.require(app.klass,function(){
+				me.desktop.windowMgr.loader.hide();
+				var c = me.getController(app.klass);
+				c.win = win;
+				c.init(me);
+				c.onLaunch(me);
+				win.show();
+			});
+			
+		}else{
+			me.showNotification({
+				message	: "The application was not found! please report this problem to your administration."
+			});
+		}
 	},
 	
 	/**

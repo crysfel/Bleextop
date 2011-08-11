@@ -25,7 +25,7 @@ Ext.define("Bleext.modules.catalogs.applications.controller.Application",{
 		this.callParent();
 		
 		this.control({
-			"#application treepanel[itemId=applicationsTree]"	: {
+			"treepanel[itemId=applicationsTree]"	: {
 				itemclick	: this.editApplication
 			}
 		});

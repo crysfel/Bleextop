@@ -26,7 +26,7 @@ Ext.define("Bleext.modules.catalogs.privileges.controller.Privileges",{
 		me.callParent();
 		
 		me.control({
-			"#privileges panel[region=center] dataview"	: {
+			"panel[region=center] dataview"	: {
 				itemdrop		: this.addRoleUser,
 				itemclick		: this.showRoleUsers,
 				containerclick	: this.hideRoleUser

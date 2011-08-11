@@ -23,6 +23,9 @@ Ext.define("Bleext.desktop.Constants",{
 	/* The directory where the avatars are */
 	USERS_AVATAR_PATH			: Bleext.BASE_PATH+"resources/avatars/",
 	
+	/* The directory where the JS's are*/
+	JS_PATH						: Bleext.BASE_PATH+"js/",
+	
 	/* Default width and height for windows */
 	DEFAULT_WINDOW_WIDTH		: 800,
 	DEFAULT_WINDOW_HEIGHT		: 480,
