@@ -30,6 +30,9 @@ Ext.define("Bleext.modules.catalogs.applications.view.ApplicationForm",{
 				xtype		: "hidden",
 				name		: "application_k"
 			},{
+				xtype		: "hidden",
+				name		: "application_parent_k"
+			},{
 				fieldLabel	: "Name",
 				name		: "name",
 				allowBlank	: false

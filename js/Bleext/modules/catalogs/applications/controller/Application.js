@@ -33,9 +33,14 @@ Ext.define("Bleext.modules.catalogs.applications.controller.Application",{
 	
 	add		: function(){
 		var form = this.win.down("form"),
-			props = this.win.down("propertygrid");
+			props = this.win.down("propertygrid"),
+			tree = this.win.down("treepanel"),
+			nodes = tree.getSelectionModel().getSelection();
 
 		form.getForm().reset();
+		if(!Ext.isEmpty(nodes)){
+			form.getForm().setValues({application_parent_k:nodes[0].get("application_k")});
+		}
 		props.setSource({
 			iconCls			: "",
 			width			: Bleext.desktop.Constants.DEFAULT_WINDOW_WIDTH,
