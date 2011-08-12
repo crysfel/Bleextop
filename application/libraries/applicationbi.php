@@ -58,6 +58,15 @@ class ApplicationBI extends BleextBI{
 		$this->appdao->remove($application_k);
 	}
 	
+	public function move($form){
+		$success = $this->appdao->move($form);
+		if($success){
+			return array("success"=>true,"message"=>"Application successfully moved");
+		}else{
+			return array("success"=>false,"message"=>"There was an error moving this application.");
+		}
+	}
+	
 	private function buildTree($apps,$text){
 		$CI =& get_instance();
 		$CI->load->library("tree");

@@ -48,4 +48,11 @@ class ApplicationDAO extends CI_Model{
 					->delete("applications");
 	}
 	
+	public function move($form){
+		return $this->db->where("application_k",$form->application_k)
+					->update("applications",array(
+						"application_parent_k"	=> $form->application_parent_k
+					));
+	}
+	
 }

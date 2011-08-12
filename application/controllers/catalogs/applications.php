@@ -53,4 +53,12 @@ class Applications extends Bleext_Controller{
 		}
 		$this->response(true);
 	}
+	
+	public function move(){
+		$form = json_decode($this->input->post("app"));
+		
+		$r = $this->applicationbi->move($form);
+		
+		$this->response($r["success"],$r);
+	}
 }

@@ -21,6 +21,11 @@ Ext.define("Bleext.modules.catalogs.applications.view.ApplicationsTree",{
 	multiSelect	: false,
 	rootVisible	: false,
 	full		: true,
+	viewConfig	: {
+		plugins	: {
+			ptype: "treeviewdragdrop"
+		}
+	},
 
 	initComponent	: function() {
 		var me = this;

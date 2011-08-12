@@ -26,7 +26,8 @@ Ext.define("Bleext.modules.catalogs.applications.controller.Application",{
 		
 		this.control({
 			"treepanel[itemId=applicationsTree]"	: {
-				itemclick	: this.editApplication
+				itemclick	: this.editApplication,
+				itemmove	: this.changeParent
 			}
 		});
 	},
@@ -121,7 +122,22 @@ Ext.define("Bleext.modules.catalogs.applications.controller.Application",{
 		}));
 	},
 	
-	setViewport	: function(){
+	changeParent	: function(application,oldParent,newParent,index,options){
+		var tree = this.win.down("treepanel"),
+			values = {
+				application_k		: application.get("application_k"),
+				application_parent_k: newParent.get("application_k")
+			};
+			
+		Bleext.Ajax.request({
+			url		: Bleext.BASE_PATH+"index.php/catalogs/applications/move",
+			params	: {app:Ext.encode(values)},
+			el		: tree.el,
+			statusBar: this.win.statusBar
+		});
+	},
+	
+	setViewport		: function(){
         this.win.add(Ext.create("Bleext.modules.catalogs.applications.view.Viewport"));
 	}
 });
