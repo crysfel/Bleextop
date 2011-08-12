@@ -34,7 +34,7 @@ Ext.define("Bleext.modules.catalogs.applications.controller.Application",{
 	add		: function(){
 		var form = this.win.down("form"),
 			props = this.win.down("propertygrid");
-			
+
 		form.getForm().reset();
 		props.setSource({
 			iconCls			: "",
@@ -59,6 +59,7 @@ Ext.define("Bleext.modules.catalogs.applications.controller.Application",{
 				params		: {data:Ext.encode(params)},
 				success		: function(data){
 					tree.getStore().load();
+					form.getForm().setValues({application_k:data.application_k});
 				}
 			});
 		}else{
@@ -67,6 +68,36 @@ Ext.define("Bleext.modules.catalogs.applications.controller.Application",{
 				iconCls	: 'x-status-error'
 			});
 		}
+	},
+	
+	remove			: function(){
+		var tree = this.win.down("treepanel"),
+			nodes = tree.getSelectionModel().getSelection();
+		if(Ext.isEmpty(nodes)){
+			this.showError("You need to select an application to delete.");
+			return false;
+		}
+		
+		if(!Ext.isEmpty(nodes[0].childNodes)){
+			this.showError("You you can't delete a folder that contains applications, delete applications first.");
+			return false;
+		}
+		
+		Bleext.Msg.confirm("Are you sure you want to delete this application?",function(btn){
+			if(btn === "yes"){
+				var form = this.win.down("form");
+				
+				Bleext.Ajax.request({
+					url		: Bleext.BASE_PATH+"index.php/catalogs/applications/remove",
+					params	: {application_k:form.getForm().getValues().application_k},
+					statusBar : this.win.statusBar,
+					success		: function(data){
+						tree.getStore().load();
+						form.getForm().reset();
+					}
+				});
+			}
+		},this);
 	},
 	
 	editApplication	: function(tree,record){

@@ -46,8 +46,18 @@ Ext.define("Bleext.abstract.Controller",{
 		}
 	},
 	
-	showError	: function(){
-		
+	showError	: function(msg){
+		this.win.statusBar.setStatus({
+			text	: msg,
+			iconCls	: "x-status-error"
+		});
+	},
+	
+	showMessage	: function(msg){
+		this.win.statusBar.setStatus({
+			text	: msg,
+			iconCls	: "x-status-valid"
+		});
 	},
 	
 	setViewport	: Ext.emptyFn,

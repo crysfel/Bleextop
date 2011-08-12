@@ -135,7 +135,7 @@ Ext.define("Bleext.core.Ajax",{
 				if(options && options.onSuccessCallback){
 					if(options.statusBar){
 						options.statusBar.setStatus({
-							text	: options.successMsg || "Action completed",
+							text	: data.message || "Action completed",
 							iconCls	: 'x-status-valid'
 						});
 					}
@@ -168,7 +168,7 @@ Ext.define("Bleext.core.Ajax",{
 				this.fireEvent("sessionexpired",data); //show login form here!!
 			}
 		}else{
-			data = {success:false,msg:response.statusText};
+			data = {success:false,message:response.statusText};
 			switch(response.status){
 				case 0	: 	//timeout
 							data.message = "There was an error, please try it again later.";

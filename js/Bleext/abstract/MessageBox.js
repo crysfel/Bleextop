@@ -61,8 +61,8 @@ Ext.define("Bleext.abstract.MessageBox",{
 			icon	: Ext.Msg.QUESTION,
 			buttons	: Ext.Msg.YESNO,
 			msg		: message,
-			fn		: callback,
-			scope	: scope
+			fn		: callback || Ext.emptyFn,
+			scope	: scope || this
 		});
 	}
 	

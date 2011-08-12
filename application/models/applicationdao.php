@@ -26,13 +26,26 @@ class ApplicationDAO extends CI_Model{
 	}
 	
 	public function save($app){
-		$this->db->insert("applications",$app);
+		$success = $this->db->insert("applications",$app);
+		
+		if($success){
+			return $this->db->insert_id();
+		}else{
+			return false;
+		}
 	}
 	
 	public function update($app){
-		
-		$this->db->where("application_k",$app->application_k)
+		$success = $this->db->where("application_k",$app->application_k)
 					->update("applications",$app);
+
+		return $success;
+	}
+	
+	public function remove($application_k){
+		
+		$this->db->where("application_k",$application_k)
+					->delete("applications");
 	}
 	
 }

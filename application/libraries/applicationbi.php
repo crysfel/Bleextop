@@ -34,12 +34,28 @@ class ApplicationBI extends BleextBI{
 	public function save($form){
 		$form->date_updated = date("Y-m-d h:i:s");
 		$form->date_created = date("Y-m-d h:i:s");
-		$this->appdao->save($form);
+		$id = $this->appdao->save($form);
+		
+		if($id === false){
+			return array("success"=>false,"message"=>"There was an error saving this application.");
+		}else{
+			return array("success"=>true,"application_k"=>$id,"message"=>"Application successfully saved");
+		}
 	}
 	
 	public function update($form){
 		$form->date_updated = date("Y-m-d h:i:s");
-		$this->appdao->update($form);
+		$success = $this->appdao->update($form);
+		
+		if($success){
+			return array("success"=>true,"application_k"=>$form->application_k,"message"=>"Application successfully updated");
+		}else{
+			return array("success"=>false,"message"=>"There was an error updating this application.");
+		}
+	}
+	
+	public function remove($application_k){
+		$this->appdao->remove($application_k);
 	}
 	
 	private function buildTree($apps,$text){
