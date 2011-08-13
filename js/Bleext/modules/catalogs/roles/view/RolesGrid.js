@@ -18,17 +18,24 @@ Ext.define("Bleext.modules.catalogs.roles.view.RolesGrid",{
 	border		: false,
 	split		: true,
 	collapsible	: true,
+	editable	: true,
 	
 	initComponent	: function(){
 		var me = this;
-		
-		me.plugins = [Ext.create("Ext.grid.plugin.RowEditing")];
+
+		if(me.editable){
+			me.plugins = [Ext.create("Ext.grid.plugin.RowEditing")];
+		}
 		
 		me.columns = [
-			{header:"ID",dataIndex:"role_k",width:50},
-			{header:"Nombre",dataIndex:"nombre",flex:1,field:"textfield"},
-			{header:"Descripción",dataIndex:"descripcion",flex:1,field:"textfield"}
+			{header:"Name",dataIndex:"name",flex:1,field:"textfield"}
 		];
+		
+		if(me.full){
+			me.columns.push(
+				{header:"Description",dataIndex:"description",flex:1,field:"textfield"}
+			);
+		}
 		
 		me.callParent();
 	}

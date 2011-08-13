@@ -12,39 +12,42 @@
 
 Ext.define("Bleext.modules.catalogs.users.view.UsersGrid",{
 	extend		: "Bleext.abstract.Grid",
-	store		: "Bleext.modules.catalogs.users.store.Users",
+	requires	: [
+		"Bleext.modules.catalogs.users.model.User",
+		"Bleext.modules.catalogs.users.store.Users"
+	],
 	
 	title		: "Users",
 	border		: false,
-	collapsible	: true,
-	split		: true,
+	editable	: true,
 	
 	initComponent	: function() {
 		var me = this;
 		
-		me.selType =  'rowmodel';
+		me.store = me.store || Ext.create("Bleext.modules.catalogs.users.store.Users");
 		
-		me.plugins = [
-		        Ext.create('Ext.grid.plugin.RowEditing', {
-		            clicksToEdit	: 2,
-					id				: "bleext-users-editor"
-		        })
-		    ];
+		if(this.editable){
+			me.plugins = [Ext.create("Ext.grid.plugin.RowEditing")];
+		}
+	
 		
 		me.columns = [
 			Ext.create('Ext.grid.RowNumberer'),
-			{header:"Username",dataIndex:"username",flex:1,field: 'textfield'},
 			{header:"Name",dataIndex:"name",flex:1,field: 'textfield'},
-			{header:"Lastname",dataIndex:"lastname",flex:1,field: 'textfield'},
-			{header:"Email",dataIndex:"email",flex:1,field: 'textfield'},
-			{header:"Active",dataIndex:"active",width:50,renderer:this.showActive,scope:this,field: 'checkbox'}
+			{header:"Lastname",dataIndex:"lastname",flex:1,field: 'textfield'}
 		];
         
+		if(me.full){
+			me.columns.push(
+				{header:"Email",dataIndex:"email",flex:1,field: 'textfield'},
+				{header:"Active",dataIndex:"active",width:50,renderer:this.showActive,scope:this,field: 'checkbox'}
+			);
+		}
 		me.callParent();
 	},
 	
 	showActive	: function(value){
-		if(value == 1){
+		if(value){
 			return "Yes";
 		}else{
 			return "No"

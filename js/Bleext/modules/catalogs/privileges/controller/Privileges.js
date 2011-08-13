@@ -16,7 +16,8 @@ Ext.define("Bleext.modules.catalogs.privileges.controller.Privileges",{
 		"Bleext.modules.catalogs.privileges.view.Viewport",
 		"Bleext.modules.catalogs.privileges.view.PermissionsGrid",
 		"Bleext.modules.catalogs.users.view.UsersView",
-		"Bleext.modules.catalogs.roles.view.RolesView"
+		"Bleext.modules.catalogs.roles.view.RolesView",
+		"Bleext.modules.catalogs.users.view.UsersGrid"
 	],
 	//stores		: ["Bleext.modules.catalogs.privileges.store.UserRoles"],
 	//models		: ["Bleext.modules.catalogs.privileges.model.UserRole"],
@@ -34,15 +35,30 @@ Ext.define("Bleext.modules.catalogs.privileges.controller.Privileges",{
 		});
 	},
 	
-	addRoleUser	: function(role,user){
-		Ext.Msg.alert("Testing","User '"+user.userData.name+" "+user.userData.lastname+"' added to role '"+role.get("name")+"' (TODO: Implement saving this information in a database)");
+	addRoleUser	: function(role,data){
+		var view = this.win.down("panel[region=center] dataview"),
+			values = {
+				role_k	: role.get("role_k"),
+				user_k	: data.user.user_k
+			};
+
+		Bleext.Ajax.request({
+			url		: Bleext.BASE_PATH+"index.php/catalogs/roles/adduser",
+			params	: {form:Ext.encode(values)},
+			statusBar: this.win.statusBar,
+			success	: function(data){
+				role.set("users",data.total);
+			}
+		});
 	},
 	
 	showRoleUsers	: function(view,record){
-		var grid = this.win.down("panel[region=east]");
+		var grid = this.win.down("gridpanel");
 		
 		grid.setTitle(record.get("name")+" Role");
 		grid.expand(true);
+		grid.getStore().extraParams = {role_k:record.get("role_k")};
+		grid.getStore().load();
 	},
 	
 	hideRoleUser	: function(){

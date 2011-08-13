@@ -20,7 +20,21 @@ Ext.define("Bleext.modules.catalogs.privileges.view.Viewport",{
 	
 	buildItems	: function(){
 		var users = Ext.create("Bleext.modules.catalogs.users.view.UsersView"),
-			roles = Ext.create("Bleext.modules.catalogs.roles.view.RolesView");
+			roles = Ext.create("Bleext.modules.catalogs.roles.view.RolesView"),
+			usersRole = Ext.create("Bleext.modules.catalogs.users.view.UsersGrid",{
+				full	: false,
+				editable: false,
+				width		: 180,
+				title		: "Select a role",
+				hideCollapseTool: true,
+				collapsible	: true,
+				collapsed	: true,
+				region		: "east",
+				store	: Ext.create("Bleext.modules.catalogs.users.store.Users",{
+					url			: "catalogs/role/getusers",
+					autoLoad	: false
+				})
+			});
 			
 		return [{
 			region		: "west",
@@ -32,14 +46,7 @@ Ext.define("Bleext.modules.catalogs.privileges.view.Viewport",{
 		},{
 			region	: "center",
 			items	: roles
-		},{
-			region		: "east",
-			width		: 150,
-			title		: "Select a role",
-			hideCollapseTool: true,
-			collapsible	: true,
-			collapsed	: true
-		}];
+		},usersRole];
 	}
 	
 });

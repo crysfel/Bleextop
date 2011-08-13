@@ -133,13 +133,13 @@ Ext.define("Bleext.core.Ajax",{
 
 			if(data.success){
 				if(options && options.onSuccessCallback){
-					if(options.statusBar){
-						options.statusBar.setStatus({
-							text	: data.message || "Action completed",
-							iconCls	: 'x-status-valid'
-						});
-					}
 					options.onSuccessCallback.call(options.scope,data,options);
+				}
+				if(options.statusBar){
+					options.statusBar.setStatus({
+						text	: data.message || "Action completed",
+						iconCls	: 'x-status-valid'
+					});
 				}
 			}else{
 				delete data;

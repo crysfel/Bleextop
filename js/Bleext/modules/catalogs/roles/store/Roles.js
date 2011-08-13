@@ -14,5 +14,5 @@ Ext.define("Bleext.modules.catalogs.roles.store.Roles",{
 	extend 	: "Bleext.abstract.Store",
 	model	: "Bleext.modules.catalogs.roles.model.Role",
 	
-	url		: "roles/getAllRoles"
+	url		: "catalogs/roles/getAll"
 });

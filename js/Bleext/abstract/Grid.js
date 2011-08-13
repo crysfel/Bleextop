@@ -14,6 +14,7 @@ Ext.define("Bleext.abstract.Grid",{
 	extend		: "Ext.grid.Panel",
 	
 	border		: false,
+	full		: true,
 	
 	initComponent	: function() {
 		var me = this;

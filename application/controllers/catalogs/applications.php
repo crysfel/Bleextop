@@ -5,8 +5,8 @@ class Applications extends Bleext_Controller{
 	public $permissions = array(
 		"getAll"	=> "permissions_read",
 		"getActives"=> "permissions_read",
-		"save"		=> array("permissions_create","permissions_update"),
-		"remove"	=> "permissions_delete"
+		"saveapp"		=> array("permissions_create","permissions_update"),
+		"remove"	=> "application_permission_delete"
 	);
 	
 	function Applications(){

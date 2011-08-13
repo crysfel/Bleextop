@@ -13,14 +13,15 @@
 Ext.define("Bleext.modules.catalogs.users.model.User",{
 	extend		: "Ext.data.Model",
 
-	idProperty	: "username",
+	idProperty	: "user_k",
 	fields		: [
+		{name:"user_k",type:"integer"},
 		"username",
 		"name",
 		"lastname",
 		"email",
 		"avatar",
-		"active",
+		{name:"active",type:"boolean"},
 		{name:"base_path",defaultValue:Bleext.desktop.Constants.USERS_AVATAR_PATH}
 	]
 	

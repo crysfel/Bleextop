@@ -16,19 +16,37 @@ class RoleDAO extends CI_Model{
 		return $rs->result_array();
 	}
 	
+	public function getUserCount($role_k){
+		$rs = $this->db->query("select count(*) as total from roles R 
+								join user_roles UR on UR.role_k=R.role_k
+								where R.role_k= ?",array($role_k));
+		return $rs->row_array();
+	}
+	
+	public function getUserRole($form){
+		$rs = $this->db->get_where("user_roles",array(
+				"role_k"	=> $form->role_k,
+				"user_k"	=> $form->user_k
+			));
+		return $rs->row_array();
+	}
+	
+	public function addUser($form){
+		$form->date_created = date("Y-m-d h:i:s");
+		return $this->db->insert("user_roles",$form);
+	}
+	
 	public function save($role){
-		$this->db->insert("roles",$role);
-		
+		return $this->db->insert("roles",$role);
 	}
 	
 	public function update($role){
 		$this->db->where("role_k",$role->role_k);
-		$this->db->update("roles",$role);
-		
+		return $this->db->update("roles",$role);
 	}
 	
 	public function delete($role){
 		$this->db->where("role_k",$role->role_k);
-		$this->db->delete("roles");
+		return $this->db->delete("roles");
 	}
 }

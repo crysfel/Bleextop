@@ -67,7 +67,7 @@ Ext.define("Bleext.modules.catalogs.users.view.UsersView",{
 						sourceEl	: sourceEl,
 						repairXY	: Ext.fly(sourceEl).getXY(),
 						ddel		: d,
-						userData	: view.getRecord(sourceEl).data
+						user		: view.getRecord(sourceEl).data
 					};
 				}
 			},
