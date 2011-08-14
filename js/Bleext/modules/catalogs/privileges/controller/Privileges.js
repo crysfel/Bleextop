@@ -35,6 +35,16 @@ Ext.define("Bleext.modules.catalogs.privileges.controller.Privileges",{
 		});
 	},
 	
+	add			: function(){
+		Bleext.Msg.prompt("Create role","Name:",function(btn,value){
+			if(btn === "ok" && value != ""){
+				var view = this.win.down("panel[region=center] dataview");
+				
+				view.getStore().add({name:value,users:0});
+			}
+		},this);
+	},
+	
 	addRoleUser	: function(role,data){
 		var view = this.win.down("panel[region=center] dataview"),
 			values = {
@@ -57,7 +67,7 @@ Ext.define("Bleext.modules.catalogs.privileges.controller.Privileges",{
 		
 		grid.setTitle(record.get("name")+" Role");
 		grid.expand(true);
-		grid.getStore().extraParams = {role_k:record.get("role_k")};
+		grid.getStore().getProxy().extraParams = {role_k:record.get("role_k")};
 		grid.getStore().load();
 	},
 	

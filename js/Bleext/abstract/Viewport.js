@@ -35,7 +35,7 @@ Ext.define("Bleext.abstract.Viewport",{
 	buildTopButtons	: function(){
 		return [{
 			xtype	: "buttongroup",
-			title	: "Operaciones",
+			title	: "Actions",
 			defaults: {scale: 'large',iconAlign:"top",width:45},
 			items	: [{
 				text 	: "New",
@@ -52,11 +52,10 @@ Ext.define("Bleext.abstract.Viewport",{
 			}]
 		},{
 			xtype	: "buttongroup",
-			title	: "Activities",
-			itemId	: "activities",
+			title	: "Export",
 			defaults: {scale: 'large',iconAlign:"top",width:45},
 			items	: [{
-				text	: "Export",
+				text	: "Excel",
 				action	: "export",
 				iconCls	: "export-action-icon"
 			},{

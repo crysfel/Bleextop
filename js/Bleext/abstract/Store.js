@@ -15,9 +15,10 @@ Ext.define("Bleext.abstract.Store",{
 	
 	autoLoad	: true,
 
-	constructor	: function(){
+	constructor	: function(options){
 		var me = this;
 		
+		Ext.apply(me,options || {});
 		me.proxy = {
 	       type		: "ajax",
 	       url		: Bleext.BASE_PATH + "index.php/" +me.url,

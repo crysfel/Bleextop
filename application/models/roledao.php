@@ -16,6 +16,16 @@ class RoleDAO extends CI_Model{
 		return $rs->result_array();
 	}
 	
+	public function getUsers($role_k){
+		$rs = $this->db->select("U.*")
+						->from("users U")
+						->join("user_roles UR","UR.user_k=U.user_k")
+						->where("UR.role_k",$role_k)
+						->get();
+						
+		return $rs->result_array();
+	}
+	
 	public function getUserCount($role_k){
 		$rs = $this->db->query("select count(*) as total from roles R 
 								join user_roles UR on UR.role_k=R.role_k

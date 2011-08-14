@@ -31,7 +31,7 @@ Ext.define("Bleext.modules.catalogs.privileges.view.Viewport",{
 				collapsed	: true,
 				region		: "east",
 				store	: Ext.create("Bleext.modules.catalogs.users.store.Users",{
-					url			: "catalogs/role/getusers",
+					url			: "catalogs/roles/getusers",
 					autoLoad	: false
 				})
 			});
