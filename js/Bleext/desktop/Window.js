@@ -23,7 +23,7 @@ Ext.define("Bleext.desktop.Window",{
 	height			: Bleext.desktop.Constants.DEFAULT_WINDOW_HEIGHT,
 	layout			: "fit",
 	//renderTo		: Bleext.App.desktop.body.dom,
-	//constrain		: true,
+	constrain		: true,
 	bodyPadding		: 2,
 
 	initComponent	: function() {

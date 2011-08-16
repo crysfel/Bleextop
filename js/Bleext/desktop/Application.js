@@ -76,6 +76,7 @@ Ext.define("Bleext.desktop.Application",{
 			me.desktop.windowMgr.loader.show();
 			Ext.Loader.setPath(appname,Bleext.desktop.Constants.JS_PATH+appname);
 			Ext.Loader.require(app.klass,function(){
+				me.desktop.add(win);
 				me.desktop.windowMgr.loader.hide();
 				var c = me.getController(app.klass);
 				c.win = win;
