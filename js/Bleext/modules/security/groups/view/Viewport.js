@@ -10,7 +10,7 @@
  *
  **/
 
-Ext.define("Bleext.modules.catalogs.privileges.view.Viewport",{
+Ext.define("Bleext.modules.security.groups.view.Viewport",{
 	extend		: "Bleext.abstract.Viewport",
 	
 	defaults	: {
@@ -19,6 +19,7 @@ Ext.define("Bleext.modules.catalogs.privileges.view.Viewport",{
 	},
 	
 	buildItems	: function(){
+		
 		var users = Ext.create("Bleext.modules.catalogs.users.view.UsersView"),
 			roles = Ext.create("Bleext.modules.catalogs.roles.view.RolesView"),
 			usersRole = Ext.create("Bleext.modules.catalogs.users.view.UsersGrid",{
@@ -47,6 +48,12 @@ Ext.define("Bleext.modules.catalogs.privileges.view.Viewport",{
 			region	: "center",
 			items	: roles
 		},usersRole];
+	},
+	
+	afterRender	: function(){
+		this.callParent(arguments);
+		var btn = this.down("toolbar button[action=save]");
+		btn.hide();
 	}
 	
 });

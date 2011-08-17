@@ -15,12 +15,12 @@ Ext.define("Bleext.modules.catalogs.applications.model.Application",{
 	
 	idProperty	: "application_k",
 	fields		: [
-		"application_k",
-		"application_parent_k",
+		{name:"application_k",type:"int"},
+		{name:"application_parent_k",type:"int"},
 		"text",
 		"name",
 		"description",
-		"active",
+		{name:"active",type:"boolean"},
 		"klass",
 		"configurations"
 	]

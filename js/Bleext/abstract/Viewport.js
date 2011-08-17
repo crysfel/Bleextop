@@ -48,6 +48,7 @@ Ext.define("Bleext.abstract.Viewport",{
 			},{
 				text	: "Delete",
 				action	: "delete",
+				disabled: true,
 				iconCls	: "delete-action-icon"
 			}]
 		},{

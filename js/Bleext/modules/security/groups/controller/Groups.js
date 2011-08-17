@@ -10,17 +10,14 @@
  *
  **/
 
-Ext.define("Bleext.modules.catalogs.privileges.controller.Privileges",{
+Ext.define("Bleext.modules.security.groups.controller.Groups",{
 	extend		: "Bleext.abstract.Controller",
 	views		: [
-		"Bleext.modules.catalogs.privileges.view.Viewport",
-		"Bleext.modules.catalogs.privileges.view.PermissionsGrid",
+		"Bleext.modules.security.groups.view.Viewport",
 		"Bleext.modules.catalogs.users.view.UsersView",
 		"Bleext.modules.catalogs.roles.view.RolesView",
 		"Bleext.modules.catalogs.users.view.UsersGrid"
 	],
-	//stores		: ["Bleext.modules.catalogs.privileges.store.UserRoles"],
-	//models		: ["Bleext.modules.catalogs.privileges.model.UserRole"],
 	
 	init		: function(){
 		var me = this;
@@ -30,7 +27,8 @@ Ext.define("Bleext.modules.catalogs.privileges.controller.Privileges",{
 			"panel[region=center] dataview"	: {
 				itemdrop		: this.addRoleUser,
 				itemclick		: this.showRoleUsers,
-				containerclick	: this.hideRoleUser
+				containerclick	: this.hideRoleUser,
+				selectionchange	: this.toggleDelete
 			}
 		});
 	},
@@ -78,7 +76,16 @@ Ext.define("Bleext.modules.catalogs.privileges.controller.Privileges",{
 		grid.collapse(true);
 	},
 	
+	toggleDelete	: function(view,selections){
+		var btn = this.win.down("toolbar button[action=delete]");
+		if(Ext.isEmpty(selections)){
+			btn.disable();
+		}else{
+			btn.enable();
+		}
+	},
+	
 	setViewport	: function(){
-		this.win.add(Ext.create("Bleext.modules.catalogs.privileges.view.Viewport"));
+		this.win.add(Ext.create("Bleext.modules.security.groups.view.Viewport"));
 	}
 });

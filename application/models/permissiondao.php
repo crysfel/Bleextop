@@ -6,13 +6,13 @@ class PermissionDao extends CI_Model{
 		$rs = $this->db->where("permission_k",$id)
 						->get("permissions");
 						
-		return $rs->result();
+		return $rs->result_array();
 	}
 	
 	public function getAll(){
 		$rs = $this->db->get("permissions");
 		
-		return $rs->result();
+		return $rs->result_array();
 	}
 	
 	public function save($data){
@@ -29,5 +29,12 @@ class PermissionDao extends CI_Model{
 				->delete("permissions");
 	}
 	
+	public function getByApplication($application_k){
+		$rs = $this->db->get_where("permissions",array(
+				"application_k"	=> $application_k
+			));
+		
+		return $rs->result_array();
+	}
 	
 }

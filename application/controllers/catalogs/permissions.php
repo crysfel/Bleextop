@@ -1,12 +1,6 @@
 <?php
 
 class Permissions extends Bleext_Controller{
-
-	public $permissions = array(
-		"getAll"	=> "permissions_read",
-		"save"		=> "permissions_save",
-		"delete"	=> "permissions_delete"
-	);
 	
 	function Permissions(){
 		parent::Bleext_Controller();
@@ -20,5 +14,14 @@ class Permissions extends Bleext_Controller{
 			"data"	=> $this->permissionsbi->getAll()
 		));
 	}
+	
+	public function getByApplication(){
+		$application_k = $this->input->post("application_k");
+		
+		$r = $this->permissionsbi->getByApplication($application_k);
+		
+		$this->response($r["success"],$r);
+	}
+	
 	
 }

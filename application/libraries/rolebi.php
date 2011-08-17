@@ -27,6 +27,12 @@ class RoleBI extends BleextBI{
 		}
 	}
 	
+	public function getAll(){
+		$rs = $this->db->get("roles");
+		
+		return $rs->result_array();
+	}
+	
 	public function getUsers($role_k){
 		return $this->roledao->getUsers($role_k);
 	}
