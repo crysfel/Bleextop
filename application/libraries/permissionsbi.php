@@ -18,7 +18,7 @@ class PermissionsBI extends BleextBI{
 	public function getByApplication($application_k){
 		$rows = array();
 		$permissions = $this->instance->permissiondao->getByApplication($application_k);
-		//$roles = $this->instance->roledao->getAll();
+		$actives = $this->instance->permissiondao->getRolePermissions($application_k);
 		
 		foreach($permissions as $permission){
 			array_push($rows,array(
@@ -27,9 +27,19 @@ class PermissionsBI extends BleextBI{
 			));
 		}
 		
+		$result = array();
+		foreach($rows as $row){
+			foreach($actives as $role){
+				if($role["permission_k"] === $row["permission_k"]){
+					$row["role_".$role["role_k"]] = $role["value"];
+				}
+			}
+			array_push($result,$row);
+		}
+		
 		return array(
 			"success"	=> true,
-			"data"		=> $rows
+			"data"		=> $result
 		);
 	}
 	

@@ -21,6 +21,6 @@ Ext.define("Bleext.modules.catalogs.roles.view.Viewport",{
 		var form = Ext.create("Bleext.modules.catalogs.roles.view.RoleForm",{
 			region	: "center"
 		});
-		return [grid,form]
+		return [grid,form];
 	}
 });

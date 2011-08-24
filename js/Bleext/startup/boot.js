@@ -17,14 +17,15 @@ Ext.require("Bleext.abstract.MessageBox");
 Ext.require("Bleext.desktop.Application");
 
 Ext.onReady(function(){
-	
+
 	Bleext.App = Ext.create("Bleext.desktop.Application",{
+		name		: "Bleext.App",
 		listeners	: {
 			ready	: function(){
 				setTimeout(function(){
 					Ext.get("loading").remove();
 					Ext.get("loading-mask").fadeOut({remove:true});
-				},250)
+				},250);
 			}
 		}
 	});

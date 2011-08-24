@@ -23,7 +23,37 @@ Ext.define("Bleext.modules.security.permissions.view.PermissionsGrid",{
 			{header:"Permission",dataIndex:"permission",width:150,locked:true}
 		];
 		
-		me.callParent();
+		me.selType = "cellmodel";
 		
+		me.callParent();
+	},
+	
+	buildColumns	: function(roles){
+		var columns = [],
+			fields = [],
+			store;
+		
+		for(var i=0,len=roles.data.length;i<len;i++){
+			var role = roles.data[i];
+			columns.push({header:role.name,dataIndex:"role_"+role.role_k,width:100,renderer:this.showIcon,scope:this});
+			fields.push("role_"+role.role_k);
+		}
+		columns.unshift({header:"Permission",dataIndex:"permission",width:150,locked:true});
+		fields.unshift("permission");
+
+		store = Ext.create("Bleext.modules.security.permissions.store.Permissions",{
+			fields	: fields
+		});
+		
+		this.reconfigure(store,columns);
+	},
+	
+	showIcon		: function(value,metadata,record){
+		var icon = "bleext-failure-icon-16";
+		if(value){
+			icon = "bleext-success-icon-16";
+		}
+		
+		return '<img src="'+Ext.BLANK_IMAGE_URL+'" class="bleext-permission-icon '+icon+'" />';
 	}
 });

@@ -35,7 +35,7 @@ Ext.define("Bleext.modules.security.groups.controller.Groups",{
 	
 	add			: function(){
 		Bleext.Msg.prompt("Create role","Name:",function(btn,value){
-			if(btn === "ok" && value != ""){
+			if(btn === "ok" && value !== ""){
 				var view = this.win.down("panel[region=center] dataview");
 				
 				view.getStore().add({name:value,users:0});

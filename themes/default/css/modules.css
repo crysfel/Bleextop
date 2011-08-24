@@ -7,3 +7,6 @@
 .bleext-roles-view-text{text-align:center;color:#ccc;font-weight:bold;font-size:16px;margin-top:10px;}
 .bleext-role-wrap{float:left;padding:15px;margin:20px 0px 0 20px;height:90px;width:200px;border:5px solid #99BCE8;-moz-border-radius: 60px;-webkit-border-radius: 60px;border-radius: 60px;-khtml-border-radius: 60px;}
 .bleext-role-wrap span{font-weight:bold;}
+
+
+.bleext-permission-icon{width:16px;height:16px;cursor:pointer;}

@@ -28,6 +28,9 @@ Ext.define("Bleext.modules.security.permissions.controller.Permission",{
 		me.control({
 			"treepanel"	: {
 				itemclick	: this.loadPermissions
+			},
+			"gridpanel"	: {
+				itemclick	: this.toggleValue
 			}
 		});
 		
@@ -39,34 +42,22 @@ Ext.define("Bleext.modules.security.permissions.controller.Permission",{
 	},
 	
 	loadPermissions	: function(grid,record){
-		var grid = this.win.down("gridpanel");
-		
 		grid.getStore().load({
 			params	: {application_k:record.raw.application_k}
 		});
 	},
 	
 	buildGrid	: function(roles){
-		var grid = this.win.down("gridpanel"),
-			columns = [],
-			fields = [],
-			store;
+		var grid = this.win.down("gridpanel");
 
-		for(var i=0,len=roles.data.length;i<len;i++){
-			var role = roles.data[i];
-			columns.push({header:role.name,dataIndex:"role_"+role.role_k,width:100});
-			fields.push("role_"+role.role_k);
-		}
-		columns.unshift({header:"Permission",dataIndex:"permission",width:150,locked:true});
-		fields.unshift("permission");
-
-		store = Ext.create("Bleext.modules.security.permissions.store.Permissions",{
-			fields	: fields
-		});
-		
-		grid.reconfigure(store,columns);
+		grid.buildColumns(roles);
 	},
 	
+	toggleValue	: function(grid, record) {
+
+		console.log(arguments);
+    },
+
 	setViewport	: function(){
 		this.win.add(Ext.create("Bleext.modules.security.permissions.view.Viewport"));
 	}

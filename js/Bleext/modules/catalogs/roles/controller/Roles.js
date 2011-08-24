@@ -64,7 +64,7 @@ Ext.define("Bleext.modules.catalogs.roles.controller.Roles",{
 			},
 			failure	: function(info){
 				Bleext.log(info);
-				Ext.Msg.alert("Error","No se guardaron los roles!")
+				Ext.Msg.alert("Error","No se guardaron los roles!");
 			}
 		});
 	},

@@ -64,5 +64,12 @@ Ext.define("Bleext.desktop.Shortcuts",{
 				}
 			},this);
 		}
+	},
+	
+	afterRender	: function(){
+		var me = this;
+		//console.log(me.el);
+		//console.log(me.el.query("div.bleext-shortcut"));
+		me.callParent(arguments);
 	}
 });

@@ -37,10 +37,11 @@ Ext.define("Bleext.modules.catalogs.applications.view.ApplicationsTree",{
 	},
 	
 	setAppIcon		: function(value,metadata,record){
+		var cfg;
 		try{
-			var cfg = Ext.decode(record.get("configurations"));
+			cfg = Ext.decode(record.get("configurations"));
 		}catch(e){
-			var cfg = {iconCls:""};
+			cfg = {iconCls:""};
 		}
 		
 		//if doesn't have a controller class then it's a folder

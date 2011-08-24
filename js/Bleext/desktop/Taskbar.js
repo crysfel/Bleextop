@@ -39,7 +39,10 @@ Ext.define("Bleext.desktop.Taskbar",{
 		});
 
 		me.startButton = Ext.create("Bleext.desktop.StartButton",{
-			menu		: me.startMenu
+			menu		: me.startMenu,
+			handler		: function(){
+				console.log("test!");
+			}
 		});
        
 		me.quickStart = Ext.create("Ext.toolbar.Toolbar",this.getQuickStart());

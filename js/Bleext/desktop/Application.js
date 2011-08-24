@@ -22,7 +22,7 @@ Ext.define("Bleext.desktop.Application",{
 	
 	useQuickTips: true,
 
-	constructor	: function(options) {
+	constructor	: function() {
 		var me = this;
 		
 		me.addEvents({
@@ -37,6 +37,7 @@ Ext.define("Bleext.desktop.Application",{
 			success	: this.buildDesktop,
 			failure	: this.onError
 		});
+
 	},
 	
 	buildDesktop	: function(data){
@@ -117,7 +118,7 @@ Ext.define("Bleext.desktop.Application",{
 	},
 	
 	onError	: function(data){
-		Bleext.log(data);
+		
 		Ext.Msg.alert("Error!","Sorry but there was an error loading the initial configuration.");
 	},
 	

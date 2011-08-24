@@ -40,7 +40,7 @@ Ext.define("Bleext.core.Ajax",{
 	            headers,
 	            xhr;
 			if(options.success){
-				options.onSuccessCallback = options.success
+				options.onSuccessCallback = options.success;
 				delete options.success;
 			}
 			
@@ -188,6 +188,7 @@ Ext.define("Bleext.core.Ajax",{
 							break;
 				default	:
 							data.message = response.statusText;
+							break;
 			}
 		}
 		//show notification!

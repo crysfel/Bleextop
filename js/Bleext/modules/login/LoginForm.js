@@ -29,7 +29,7 @@ Ext.define("Bleext.modules.login.LoginForm",{
 			handler	: this.login
 		},{
 			text	: "Create account"
-		}]
+		}];
 	},
 	
 	createLoginFields	: function(){

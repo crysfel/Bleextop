@@ -39,6 +39,8 @@ class ApplicationBI extends BleextBI{
 		if($id === false){
 			return array("success"=>false,"message"=>"There was an error saving this application.");
 		}else{
+			$this->appdao->addPermissions($id);
+			
 			return array("success"=>true,"application_k"=>$id,"message"=>"Application successfully saved");
 		}
 	}

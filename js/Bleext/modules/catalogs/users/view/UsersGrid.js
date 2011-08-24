@@ -50,7 +50,7 @@ Ext.define("Bleext.modules.catalogs.users.view.UsersGrid",{
 		if(value){
 			return "Yes";
 		}else{
-			return "No"
+			return "No";
 		}
 	}
 });

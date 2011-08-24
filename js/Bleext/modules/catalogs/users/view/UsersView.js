@@ -45,8 +45,7 @@ Ext.define("Bleext.modules.catalogs.users.view.UsersView",{
 					'<p><span>{name} {lastname}</span></p>',
 					'<p>{username}</p>',
 				'</div>',
-			'</tpl>'
-		);
+			'</tpl>');
 		
 		return tpl;
 	},

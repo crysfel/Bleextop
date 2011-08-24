@@ -51,8 +51,7 @@ Ext.define("Bleext.modules.catalogs.roles.view.RolesView",{
 					'<p><span>{name} ({users} Users)</span></p>',
 					'<p>{description}</p>',
 				'</div>',
-			'</tpl>'
-		);
+			'</tpl>');
 		
 		return tpl;
 	},

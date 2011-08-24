@@ -55,4 +55,20 @@ class ApplicationDAO extends CI_Model{
 					));
 	}
 	
+	public function addPermissions($id){
+		$permissions = array(
+			array("application_k"=>$id,"action"=>"access","name"=>"Access"),
+			array("application_k"=>$id,"action"=>"view","name"=>"View"),
+			array("application_k"=>$id,"action"=>"list","name"=>"List"),
+			array("application_k"=>$id,"action"=>"edit","name"=>"Edit"),
+			array("application_k"=>$id,"action"=>"delete","name"=>"Delete"),
+			array("application_k"=>$id,"action"=>"export","name"=>"Export"),
+			array("application_k"=>$id,"action"=>"print","name"=>"Print")
+		);
+		
+		foreach($permissions as $p){
+			$this->db->insert("permissions",$p);
+		}
+	}
+	
 }
