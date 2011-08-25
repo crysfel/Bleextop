@@ -41,7 +41,9 @@ Ext.define("Bleext.modules.security.permissions.controller.Permission",{
 		});
 	},
 	
-	loadPermissions	: function(grid,record){
+	loadPermissions	: function(tree,record){
+		var grid = this.win.down("gridpanel");
+		
 		grid.getStore().load({
 			params	: {application_k:record.raw.application_k}
 		});
@@ -54,8 +56,12 @@ Ext.define("Bleext.modules.security.permissions.controller.Permission",{
 	},
 	
 	toggleValue	: function(grid, record) {
-
-		console.log(arguments);
+		var clicked = grid.getSelectionModel().getCurrentPosition(),
+			dataIndex = grid.panel.columns[clicked.column].dataIndex;
+		
+		if(dataIndex !== "permission"){
+			record.set(dataIndex,!!!record.get(dataIndex));
+		}
     },
 
 	setViewport	: function(){

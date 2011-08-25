@@ -32,11 +32,12 @@
 .applications-icon{
 	background:transparent url(../images/icons/16/applications-blue.png) 0 0 no-repeat;
 }
-.permissions-icon{
+.groups-icon-16{
 	background:transparent url(../images/icons/16/user-detective.png) 0 0 no-repeat;
 }
-
-
+.permissions-icon-16{
+	background:transparent url(../images/icons/16/key--arrow.png) 0 0 no-repeat;
+}
 
 
 /* SYSTEM ICONS 16x16 */
