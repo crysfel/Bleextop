@@ -11,7 +11,12 @@ class ApplicationDAO extends CI_Model{
 				->join("roles R","R.role_k=RP.role_k")
 				->join("user_roles UR","UR.role_k=R.role_k")
 				->join("users U","U.user_k=UR.user_k")
-				->where("U.username",$params["username"])
+				->where(
+					array(
+					"U.username"	=> $params["username"],
+					"P.action"		=> "access"
+					)
+				)
 				->order_by("A.application_parent_k","ASC");
 
 		$rs = $this->db->get();
