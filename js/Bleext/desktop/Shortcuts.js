@@ -18,6 +18,9 @@ Ext.define("Bleext.desktop.Shortcuts",{
 	overItemCls	: "bleext-shortcut-over",
     trackOver	: true,
     itemSelector: "div.bleext-shortcut",
+	config		: {
+		iconWidth	: 48
+	},
 
 	/**
      * @cfg {String} shortcutTpl
@@ -25,6 +28,7 @@ Ext.define("Bleext.desktop.Shortcuts",{
      * {@link shortcutItemSelect} will probably also need to changed.
      */
     shortcutTpl: [
+		'<div class="bleext-shorcuts-container">',
         '<tpl for=".">',
             '<div class="bleext-shortcut">',
                 '<div class="bleext-shortcut-icon {iconCls}">',
@@ -33,7 +37,7 @@ Ext.define("Bleext.desktop.Shortcuts",{
                 '<span class="bleext-shortcut-text">{text}</span>',
             '</div>',
         '</tpl>',
-        '<div class="x-clear"></div>'
+        '</div>'
     ],
 
 	initComponent	: function() {
@@ -45,7 +49,10 @@ Ext.define("Bleext.desktop.Shortcuts",{
 		me.getShorcuts(me.applications);
         me.tpl = new Ext.XTemplate(me.shortcutTpl);
 
+		me.initConfig(arguments);
 		me.callParent();
+		
+		me.on("resize",me.refreshView,me);
 	},
 	
 	getShorcuts	: function(applications){
@@ -66,10 +73,19 @@ Ext.define("Bleext.desktop.Shortcuts",{
 		}
 	},
 	
-	afterRender	: function(){
-		var me = this;
-		//console.log(me.el);
-		//console.log(me.el.query("div.bleext-shortcut"));
-		me.callParent(arguments);
+	refreshView				: function(){
+		var me = this,
+			container = me.el.select(".bleext-shorcuts-container").first();
+		
+		container.setWidth((me.getIconWidth() + 60) * me.calculateColumns());
+	},
+	
+	calculateColumns	: function(){
+		var me = this,
+			total = me.store.getCount(),
+			shortcut = me.el.select(".bleext-shortcut").first(),
+			itemsPerColumn = Math.floor(me.el.getHeight()/(shortcut.getHeight()+20));
+
+		return Math.ceil(total/itemsPerColumn);	
 	}
 });

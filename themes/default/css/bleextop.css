@@ -18,12 +18,14 @@
 	text-align:center;
 	margin-top:180px;
 }
-.bleext-shortcuts-view{
-	padding:10px;
+.bleext-shortcuts-view .bleext-shorcuts-container{
+	overflow:auto;
+	width:90px;
 }
 .bleext-shortcuts-view .bleext-shortcut{
+	float:left;
+	margin:10px 20px 10px 20px;
 	width:48px;
-	margin:10px;
 	cursor:pointer;
 }
 .bleext-shortcuts-view .bleext-shortcut-over .bleext-shortcut-text {
