@@ -1,5 +1,5 @@
 /**
- * @class CRM.catalogs.users.controller.Users
+ * @class Bleext.modules.catalogs.users.controller.Users
  * @extends Ext.app.Controller
  * requires 
  * @autor Crysfel Villa
@@ -21,7 +21,6 @@ Ext.define("Bleext.modules.catalogs.users.controller.Users",{
 	models	: ["Bleext.modules.catalogs.users.model.User"],
 
 	init	: function() {
-		this.win = this.application.win;
 		
 		this.buildItems();
 		
