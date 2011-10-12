@@ -14,7 +14,8 @@ class ApplicationDAO extends CI_Model{
 				->where(
 					array(
 					"U.username"	=> $params["username"],
-					"P.action"		=> "access"
+					"P.action"		=> "access",
+					"RP.value"		=> true
 					)
 				)
 				->group_by("A.application_k")
