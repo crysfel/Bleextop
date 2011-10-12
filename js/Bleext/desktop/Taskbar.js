@@ -67,7 +67,7 @@ Ext.define("Bleext.desktop.Taskbar",{
 			cls				: "bleext-toolbar-container",
 			items			: [
 				{overflowText:"Show desktop",tooltip:{ text: "Show desktop", align: 'bl-tl' },iconCls:"bleext-desktop-icon"},
-				{overflowText:"Settings",tooltip:{ text: "Settings", align: 'bl-tl' },iconCls:"bleext-settings-icon"}
+				{overflowText:"Settings",tooltip:{ text: "Settings", align: 'bl-tl' },iconCls:"bleext-settings-icon",handler:function(){Bleext.App.showNotification({message:"Testing this notification! this is just a dommy text!"});}}
 			]
         };
 

@@ -17,6 +17,7 @@ class ApplicationDAO extends CI_Model{
 					"P.action"		=> "access"
 					)
 				)
+				->group_by("A.application_k")
 				->order_by("A.application_parent_k","ASC");
 
 		$rs = $this->db->get();

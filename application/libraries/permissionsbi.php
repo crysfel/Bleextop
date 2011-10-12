@@ -43,4 +43,31 @@ class PermissionsBI extends BleextBI{
 		);
 	}
 	
+	public function updatePermissions($permissions){
+		//for each permission
+		foreach($permissions as $p){	
+			$obj = array();
+			$obj["permission_k"] = $p->permission_k;
+			$obj["date_created"] = date("Y-m-d h:i:s");
+			
+			//remove this permission from all roles
+			$roles = $this->instance->roledao->getByPermissions($p->permission_k);
+			foreach($roles as $role){
+				$this->instance->permissiondao->deleteRolePermissions($role);
+			}
+
+			//add this permission to each role
+			foreach($p as $key=>$value){
+				if(preg_match("/^role_/",$key)){
+					$obj["role_k"] = substr($key,5);
+					$obj["value"] = $value;
+					$this->instance->permissiondao->addRolePermissions($obj);
+				}
+			}
+		}
+		return array(
+			"success"	=> true,
+			"message"	=> "Permissions successfully saved"
+		);
+	}
 }

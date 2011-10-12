@@ -23,5 +23,12 @@ class Permissions extends Bleext_Controller{
 		$this->response($r["success"],$r);
 	}
 	
+	public function save(){
+		$permissions = json_decode($this->input->post("permissions"));
+		
+		$r = $this->permissionsbi->updatePermissions($permissions);
+		
+		$this->response($r["success"],$r);
+	}
 	
 }

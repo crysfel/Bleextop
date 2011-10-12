@@ -49,21 +49,39 @@
 	  opacity: 0.5;
 }
 .bleext-notification{
+	overflow:visible;
+}
+.bleext-notification .bleext-notification-background{
 	background:#000;
-	-moz-border-radius: 10px;
-	-webkit-border-radius: 10px;
-	-khtml-border-radius: 10px; /* for old Konqueror browsers */
-	border-radius: 10px; /* future proofing */
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-khtml-border-radius: 8px; /* for old Konqueror browsers */
+	border-radius: 8px; /* future proofing */
 	
 	  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
 	  filter: alpha(opacity=60);
 	  -moz-opacity: 0.6;
 	  -khtml-opacity: 0.6;
 	  opacity: 0.6;
+	
+	height:100%;
+	border:2px solid #fff;
 }
-.bleext-notification p{
+.bleext-notification .bleext-notification-content{
+	position:absolute;
+	padding:20px;
 	font-weight:bold;
 	color:#fff;
+	z-index:1000;
+}
+.bleext-notification .bleext-notification-close{
+	position:absolute;
+	width:27px;
+	height:27px;
+	background:transparent url(../images/notifications/close-icon.png) 0 0 no-repeat;
+	top:-10px;
+	left:-10px;
+	z-index:1000;
 }
 .bleext-wallpaper-centered{
 	background:#fff center center no-repeat;

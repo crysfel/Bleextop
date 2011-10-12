@@ -63,7 +63,26 @@ Ext.define("Bleext.modules.security.permissions.controller.Permission",{
 			record.set(dataIndex,!!!record.get(dataIndex));
 		}
     },
-
+	
+	save		: function(){
+		var grid = this.win.down("gridpanel"),
+			store = grid.getStore(),
+			modified = store.getUpdatedRecords(),
+			records = [];
+		
+		Ext.each(modified,function(r){
+			records.push(r.data);
+		});
+		Bleext.Ajax.request({
+			url			: Bleext.BASE_PATH+"index.php/catalogs/permissions/save",
+			params		: {permissions:Ext.encode(records)},
+			statusBar	: this.win.statusBar,
+			success		: function(){
+				store.sync();
+			}
+		});
+	},
+	
 	setViewport	: function(){
 		this.win.add(Ext.create("Bleext.modules.security.permissions.view.Viewport"));
 	}

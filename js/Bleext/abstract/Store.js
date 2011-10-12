@@ -14,7 +14,7 @@ Ext.define("Bleext.abstract.Store",{
 	extend	: "Ext.data.Store",
 	
 	autoLoad	: true,
-
+	
 	constructor	: function(options){
 		var me = this;
 		

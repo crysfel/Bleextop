@@ -31,18 +31,25 @@ Ext.define("Bleext.modules.security.permissions.view.PermissionsGrid",{
 	buildColumns	: function(roles){
 		var columns = [],
 			fields = [],
-			store;
+			store,model;
 		
 		for(var i=0,len=roles.data.length;i<len;i++){
 			var role = roles.data[i];
 			columns.push({header:role.name,dataIndex:"role_"+role.role_k,width:100,renderer:this.showIcon,scope:this});
-			fields.push("role_"+role.role_k);
+			fields.push({name:"role_"+role.role_k,defaultValue:false,convert:function(value){if(typeof value === "boolean"){return value;}else{return value === "1";}}});
 		}
 		columns.unshift({header:"Permission",dataIndex:"permission",width:150,locked:true});
 		fields.unshift("permission");
+		fields.unshift("permission_k");
 
+		Ext.define("Bleext.modules.security.permissions.model.PermissionGroup",{
+			extend 		: "Ext.data.Model",
+			fields		: fields,
+			idProperty	: "permission_k"
+		});
+		
 		store = Ext.create("Bleext.modules.security.permissions.store.Permissions",{
-			fields	: fields
+			model : "Bleext.modules.security.permissions.model.PermissionGroup"
 		});
 		
 		this.reconfigure(store,columns);

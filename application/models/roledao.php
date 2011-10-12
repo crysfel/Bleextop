@@ -56,7 +56,18 @@ class RoleDAO extends CI_Model{
 	}
 	
 	public function delete($role){
-		$this->db->where("role_k",$role->role_k);
+		$this->db->where("role_k",$role["role_k"]);
 		return $this->db->delete("roles");
+	}
+	
+	//Get all roles that contain the given permission
+	public function getByPermissions($permission_k){
+		$rs = $this->db->select("RP.*,R.name")
+					->from("role_permissions RP")
+					->join("roles R","R.role_k=RP.role_k")
+					->where("RP.permission_k",$permission_k)
+					->get();
+					
+		return $rs->result_array();
 	}
 }
