@@ -20,7 +20,6 @@ Ext.define("Bleext.modules.catalogs.roles.controller.Roles",{
 	models	: ["Bleext.modules.catalogs.roles.model.Role"],
 	
 	init	: function(app){
-		this.win = app.win;
 		this.win.add(Ext.create("Bleext.modules.catalogs.roles.view.Viewport"));
 		
 		this.control({
