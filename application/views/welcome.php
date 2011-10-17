@@ -3,6 +3,7 @@
 <head>
 	<title>Login - Bleextop</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
 	
 	<link rel="stylesheet" href="<?php echo base_url(); ?>themes/default/css/login.css" type="text/css" media="screen" charset="utf-8">	
 	
