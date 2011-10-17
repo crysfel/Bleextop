@@ -3,6 +3,8 @@
 <head>
 	<title>Home - Bleextop</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	
 	<link rel="stylesheet" href="<?php echo base_url(); ?>themes/default/css/loading.css" type="text/css" media="screen" title="no title" charset="utf-8">
 	
 	<script src="<?php echo base_url(); ?>js/Bleext/Bleext.js" type="text/javascript" charset="utf-8"></script>	
