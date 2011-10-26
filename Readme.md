@@ -18,6 +18,7 @@ Please report any issue
 	<li>Edit the <strong>.htaccess</strong> file that is in the root directory of the project, modify the path  according to your system (Line 4), if you do not have the mod-rewrite in your apache just comment all lines in this file</li>
 	<li>Open the <strong>application/config/config.php</strong> file and change the <strong>'base_url'</strong> configuration (Line 17), this is the URL of your project</li>
 	<li>Open the <strong>application/config/database.php</strong> file and set your database credentials (Line 44)</li>
-	<li>Load the <strong>database.sql</strong> script in your mysql server</li>
+	<li>Create a database "<strong>desktop</strong>" in your mysql server. 
+	<li>Load the <strong>database/desktop.sql</strong> script in your mysql server</li>
 	<li>With your favorite browser go to the url where your project is.</li>
 </ol>
