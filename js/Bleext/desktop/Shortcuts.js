@@ -76,16 +76,23 @@ Ext.define("Bleext.desktop.Shortcuts",{
 	refreshView				: function(){
 		var me = this,
 			container = me.el.select(".bleext-shorcuts-container").first();
-		
-		container.setWidth((me.getIconWidth() + 60) * me.calculateColumns());
+
+		if(container){
+			container.setWidth((me.getIconWidth() + 60) * me.calculateColumns());
+		}
 	},
 	
 	calculateColumns	: function(){
 		var me = this,
 			total = me.store.getCount(),
-			shortcut = me.el.select(".bleext-shortcut").first(),
+			shortcut = me.el.select(".bleext-shortcut").first();
+			itemsPerColumn = 0; 
+			
+		if(shortcut){
 			itemsPerColumn = Math.floor(me.el.getHeight()/(shortcut.getHeight()+20));
+		}	
+			
 
-		return Math.ceil(total/itemsPerColumn);	
+		return itemsPerColumn > 0?Math.ceil(total/itemsPerColumn):itemsPerColumn;	
 	}
 });
