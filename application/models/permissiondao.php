@@ -29,6 +29,7 @@ class PermissionDao extends CI_Model{
 	}
 	
 	public function getByApplication($application_k){
+		$this->db->order_by("name asc");
 		$rs = $this->db->get_where("permissions",array(
 				"application_k"	=> $application_k
 			));
