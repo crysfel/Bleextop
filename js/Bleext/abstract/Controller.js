@@ -17,12 +17,18 @@ Ext.define("Bleext.abstract.Controller",{
 	/**
 	 * @cfg {Bleext.desktop.Window} win The main window for this module
 	 */
+
+	/**
+	 * @cfg {Object} selectors Object of selectors, used for remove the listeners from the event bus when module is destroyed
+	 */
+	selectors : [],
 	
 	//private
 	init	: function() {
 		var me = this,
 			actions = {};
 
+		
 		me.setViewport();
 		
 		me.control({
@@ -44,12 +50,15 @@ Ext.define("Bleext.abstract.Controller",{
 	 * @param {Object} actions An object with the selectors
 	 */
 	control		: function(actions){
+		var me = this;
 		if(Ext.isObject(actions)){
 			var obj = {};
 			Ext.Object.each(actions,function(selector){
-				obj["#"+this.win.id+" "+selector] = actions[selector];
+				var s = "#"+this.win.id+" "+selector;
+				obj[s] = actions[selector];
 			},this);
 			delete actions;
+			me.selectors.push(obj);
 			this.callParent([obj]);
 		}else{
 			this.callParent(arguments);
