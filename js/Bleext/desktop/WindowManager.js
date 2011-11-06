@@ -58,7 +58,7 @@ Ext.define("Bleext.desktop.WindowManager",{
 		}
 
 		if(cfg.singleton){
-			cfg.id = app.klass;
+			cfg.id = app.klass.replace(/\./g,'-');
 		}
 
 		//if only one instance of the application is allowed
