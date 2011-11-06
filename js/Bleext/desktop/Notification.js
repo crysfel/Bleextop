@@ -42,7 +42,7 @@ Ext.define("Bleext.desktop.Notification",{
 		'<div class="bleext-notification-background"></div>'
 	],
 	renderSelectors	: {
-	    closeBtn	: 'div.bleext-notification-close',
+	    closeBtn	: 'div.bleext-notification-close'
 	},
 	
 	constructor: function(config) { 
@@ -60,8 +60,7 @@ Ext.define("Bleext.desktop.Notification",{
 		me.x = size.width - me.width - 15;
 		me.y = 15;
 		me.callParent();
-		console.log(me);
-		console.log(me.closeBtn);
+		
 		me.doClose = function ()  {
             me.doClose = Ext.emptyFn; // dblclick can call again...
             me.el.disableShadow();
