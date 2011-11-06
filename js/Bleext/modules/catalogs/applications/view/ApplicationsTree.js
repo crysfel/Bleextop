@@ -34,21 +34,5 @@ Ext.define("Bleext.modules.catalogs.applications.view.ApplicationsTree",{
 		
 		
 		me.callParent();
-	},
-	
-	setAppIcon		: function(value,metadata,record){
-		var cfg;
-		try{
-			cfg = Ext.decode(record.get("configurations"));
-		}catch(e){
-			cfg = {iconCls:""};
-		}
-		
-		//if doesn't have a controller class then it's a folder
-		if(Ext.isEmpty(record.get("class"))){
-			cfg.iconCls = "bleext-folder-icon";
-		}
-		
-		return '<img src="'+Ext.BLANK_IMAGE_URL+'" class="'+cfg.iconCls+'" style="width:16px;height16px;vertical-align:middle;margin-right:10px;" /> '+value;
 	}
 });
