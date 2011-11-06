@@ -34,11 +34,17 @@ Ext.define("Bleext.desktop.WindowManager",{
 		this.callParent();
 	},
 	
+	/**
+	 * Creates the main window for an application. If the application is configured as "singleton" this method return the same windows every time.
+	 * @param {Object} app The configuration object for the application
+	 * @return {Bleext.desktop.Window} Return a window
+	 */
 	createWindow	: function(app){
 		var me = this, 
 			win,
 			cfg = {
-				title	: app.text
+				title		: app.text,
+				singleton 	: false
             };
 		
 		try{
@@ -51,9 +57,12 @@ Ext.define("Bleext.desktop.WindowManager",{
 			return false;
 		}
 
-		cfg.id = name.toLowerCase();
+		if(cfg.singleton){
+			cfg.id = app.klass;
+		}
 
-		if(me.windows.containsKey(cfg.id)){	//if windows exist
+		//if only one instance of the application is allowed
+		if(cfg.singleton && me.windows.containsKey(cfg.id)){
 			return me.windows.get(cfg.id);
 		}
 		
