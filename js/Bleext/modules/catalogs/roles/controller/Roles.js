@@ -10,7 +10,7 @@
  **/
 
 Ext.define("Bleext.modules.catalogs.roles.controller.Roles",{
-	extend 	: "Ext.app.Controller",
+	extend 	: "Bleext.abstract.Controller",
 	views	: [
 		"Bleext.modules.catalogs.roles.view.Viewport",
 		"Bleext.modules.catalogs.roles.view.RolesGrid",
