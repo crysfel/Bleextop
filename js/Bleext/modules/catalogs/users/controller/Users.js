@@ -11,7 +11,7 @@
  **/
 
 Ext.define("Bleext.modules.catalogs.users.controller.Users",{
-	extend 	: "Ext.app.Controller",
+	extend 	: "Bleext.abstract.Controller",
 	views	: [
 		"Bleext.modules.catalogs.users.view.Viewport",
 		"Bleext.modules.catalogs.users.view.UsersGrid",
