@@ -32,10 +32,11 @@ Ext.define("Bleext.desktop.Taskbar",{
 				height	: 14, width: 2, // TODO - there should be a CSS way here
 				cls		: "x-toolbar-separator x-toolbar-separator-horizontal bleext-toolbar-splitter"
             };
-		
+
 		me.startMenu = Ext.create("Bleext.desktop.StartMenu",{
-			applications	: this.applications,
-			user			: this.user
+			applications	: me.applications,
+			user			: me.user,
+			position		: me.dock
 		});
 
 		me.startButton = Ext.create("Bleext.desktop.StartButton",{

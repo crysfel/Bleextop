@@ -27,7 +27,8 @@ Ext.define("Bleext.desktop.Desktop",{
 	initComponent	: function() {
 		var me = this;
 
-		me.bbar = me.taskbar = Ext.create("Bleext.desktop.Taskbar",me.userConfig);
+		me.taskbar = Ext.create("Bleext.desktop.Taskbar",me.userConfig);
+		me.dockedItems = [me.taskbar];
 		me.windowMgr = Ext.create("Bleext.desktop.WindowManager",{taskbar:me.taskbar});
 
 		me.shortcuts = Ext.create("Bleext.desktop.Shortcuts",{
