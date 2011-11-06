@@ -117,8 +117,17 @@ Ext.define('Bleext.desktop.StartMenu', {
             var xy = me.el.getAlignToXY(cmp, pos || me.defaultAlign, off);
             if (me.floatParent) {
                 var r = me.floatParent.getTargetEl().getViewRegion();
-                xy[0] -= r.x;
-                xy[1] -= r.y;
+				switch(me.position){
+					case "top"		: 
+							xy[0] -= r.x;
+							xy[1] = r.bottom - r.y/2;
+							break;
+					case "bottom"	:
+							xy[0] -= r.x;
+			                xy[1] -= r.y;
+							break;
+				}
+                
             }
             me.showAt(xy);
             me.doConstrain();
