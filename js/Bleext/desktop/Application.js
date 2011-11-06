@@ -68,21 +68,41 @@ Ext.define("Bleext.desktop.Application",{
 	runApplication	: function(item) {
 		var app = item.initialConfig,
 			win = this.desktop.windowMgr.createWindow(app),
-			me	= this;
-		
+			me	= this,
+			cfg;
+
 		if(win){
 			var arr = app.klass.split("."),
 				appname = arr[0];
+
+			cfg = Ext.decode(app.configurations);
 			
 			me.desktop.windowMgr.loader.show();
 			Ext.Loader.setPath(appname,Bleext.desktop.Constants.JS_PATH+appname);
 			Ext.Loader.require(app.klass,function(){
+				var controller,
+					id = win.id+"-"+app.klass;
 				me.desktop.add(win);
 				me.desktop.windowMgr.loader.hide();
-				var c = me.getController(app.klass);
-				c.win = win;
-				c.init(me);
-				c.onLaunch(me);
+				
+				if(cfg.singleton){
+					controller = me.controllers.get(id);
+				}
+				
+				if(!controller){
+					controller = Ext.create(me.getModuleClassName(app.klass, 'controller'), {
+		                application	: me,
+		                id			: id
+		            });
+					me.controllers.add(controller);
+					controller.win = win;
+					controller.init(me);
+					controller.onLaunch(me);
+					win.on("destroy",function(){
+						me.destroyController(controller);
+					});
+				}
+				
 				win.show();
 			});
 			
@@ -91,6 +111,24 @@ Ext.define("Bleext.desktop.Application",{
 				message	: "The application was not found! please report this problem to your administration."
 			});
 		}
+	},
+	
+	destroyController	: function(controller){
+		var me = this;
+		
+		//remove from collection
+		me.controllers.remove(controller);
+		for(var i=0,len=controller.selectors.length;i<len;i++){
+			var obj = controller.selectors[i];
+			for(var s in obj){
+				for(var ev in obj[s]){
+					//remove selectors from event bus
+					delete me.eventbus.bus[ev][s];
+				}
+				
+			}
+		}
+		delete controller;
 	},
 	
 	/**
