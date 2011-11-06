@@ -45,6 +45,15 @@ Ext.define("Bleext.modules.catalogs.applications.view.ApplicationForm",{
 				name		: "description"
 			},{
 				xtype		: "checkbox",
+				name		: "singleton",
+				boxLabel	: "Singleton",
+				hideEmptyLabel 	: false,
+				inputValue	: 1,
+				uncheckedValue: 0,
+				labelSeparator 	: "",
+				fieldLabel		: ""
+			},{
+				xtype		: "checkbox",
 				name		: "active",
 				boxLabel	: "Active",
 				hideEmptyLabel 	: false,
