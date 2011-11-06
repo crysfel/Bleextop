@@ -57,8 +57,11 @@ Ext.define("Bleext.modules.catalogs.applications.controller.Application",{
 			tree = this.win.down("treepanel");
 		
 		if(form.getForm().isValid()){
-			params.configurations = Ext.encode(props.getSource());	
-
+			var obj = props.getSource();
+			obj.singleton = params.singleton;
+			params.configurations = Ext.encode(obj);	
+			delete params.singleton;
+			
 			Bleext.Ajax.request({
 				url			: Bleext.BASE_PATH+"index.php/catalogs/applications/saveapp",
 				statusBar 	: this.win.statusBar,
@@ -112,6 +115,7 @@ Ext.define("Bleext.modules.catalogs.applications.controller.Application",{
 			configs = record.get("configurations") || "{}";
 			
 		configs = Ext.decode(configs);
+		record.data.singleton = configs.singleton === 1;
 
 		form.loadRecord(record);
 		props.setSource(Ext.applyIf(configs,{
