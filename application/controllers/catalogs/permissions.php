@@ -31,4 +31,15 @@ class Permissions extends Bleext_Controller{
 		$this->response($r["success"],$r);
 	}
 	
+	public function getForCurrentUserApplication(){
+		$application_k = $this->input->post("application_k");
+		
+		$r = $this->permissionsbi->getByUserApplication(array(
+			"user"			=> $this->getUser(),
+			"application_k"	=> $application_k
+		));
+		
+		$this->response($r["success"],$r);
+	}
+	
 }

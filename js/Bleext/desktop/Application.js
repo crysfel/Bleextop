@@ -17,7 +17,9 @@ Ext.define("Bleext.desktop.Application",{
 	},
 	requires	: [
 		"Bleext.desktop.Desktop",
-		"Bleext.desktop.Notification"
+		"Bleext.desktop.Notification",
+		"Bleext.desktop.TaskbarContainer",
+		"Bleext.desktop.WindowManager"
 	],
 	
 	useQuickTips: true,
@@ -67,8 +69,30 @@ Ext.define("Bleext.desktop.Application",{
 	 */
 	runApplication	: function(item) {
 		var app = item.initialConfig,
+			me	= this;
+			
+		me.desktop.windowMgr.loader.show();
+		Bleext.Ajax.request({
+			url		: Bleext.BASE_PATH+"index.php/catalogs/permissions/getForCurrentUserApplication",
+			scope	: me,
+			app 	: app,
+			params	: {
+				application_k : app.application_k
+			},
+			success	: me.showApplication,
+			failure	: me.onPermissionsError
+		});
+		
+	},
+	
+	/**
+	 *	Show the application window after the server response
+	 *	with the permissions for the current user
+	 **/
+	showApplication		: function(info,options){
+		var me = this,
+			app = options.app,
 			win = this.desktop.windowMgr.createWindow(app),
-			me	= this,
 			cfg;
 
 		if(win){
@@ -77,7 +101,6 @@ Ext.define("Bleext.desktop.Application",{
 
 			cfg = Ext.decode(app.configurations);
 			
-			me.desktop.windowMgr.loader.show();
 			Ext.Loader.setPath(appname,Bleext.desktop.Constants.JS_PATH+appname);
 			Ext.Loader.require(app.klass,function(){
 				var controller,
@@ -91,6 +114,7 @@ Ext.define("Bleext.desktop.Application",{
 				
 				if(!controller){
 					controller = Ext.create(me.getModuleClassName(app.klass, 'controller'), {
+						permissions	: info.data,
 		                application	: me,
 		                id			: id
 		            });
@@ -111,6 +135,10 @@ Ext.define("Bleext.desktop.Application",{
 				message	: "The application was not found! please report this problem to your administration."
 			});
 		}
+	},
+	
+	onPermissionsError	: function(data){
+		me.showNotification(data);
 	},
 	
 	destroyController	: function(controller){
