@@ -28,7 +28,7 @@
 	<link rel="stylesheet" href="<?php echo base_url(); ?>themes/default/css/icons.css" type="text/css" media="screen" title="no title" charset="utf-8">
 	<script type="text/javascript">document.getElementById('msg').innerHTML = 'Please wait: Loading ExtJS files';</script> 
 	
-	<script src="<?php echo base_url(); ?>js/Ext/ext-all-debug.js" type="text/javascript" charset="utf-8"></script>
+	<script src="<?php echo base_url(); ?>js/Ext/ext-all-dev.js" type="text/javascript" charset="utf-8"></script>
 	<script src="<?php echo base_url(); ?>js/Bleext/core/Ajax.js" type="text/javascript" charset="utf-8"></script>
 	<script src="<?php echo base_url(); ?>js/Bleext/core/Log.js" type="text/javascript" charset="utf-8"></script>
 	<script src="<?php echo base_url(); ?>js/Bleext/desktop/Constants.js" type="text/javascript" charset="utf-8"></script>
