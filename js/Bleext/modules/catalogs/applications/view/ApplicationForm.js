@@ -25,6 +25,7 @@ Ext.define("Bleext.modules.catalogs.applications.view.ApplicationForm",{
 	buildItems		: function(){
 		return	{
 			xtype	: "fieldset",
+			padding	: 10,
 			defaults	: {xtype:"textfield",anchor	: '100%'},
 			items	: [{
 				xtype		: "hidden",
