@@ -12,6 +12,7 @@
 
 Ext.define("Bleext.modules.catalogs.users.view.UsersView",{
 	extend		: "Ext.view.View",
+	
 	requires	: [
 		"Bleext.modules.catalogs.users.model.User",
 		"Bleext.modules.catalogs.users.store.Users"
@@ -19,13 +20,16 @@ Ext.define("Bleext.modules.catalogs.users.view.UsersView",{
 	
 	itemSelector	: "div.bleext-user-wrap",
 	emptyText		: "No users founds",
+	store			: "Bleext.modules.catalogs.users.store.Users",
 	draggable		: true,
 	
 	initComponent	: function() {
 		var me = this;
-		
-        me.store = Ext.create("Bleext.modules.catalogs.users.store.Users");
+
 		me.tpl = me.createTemplate();
+		me.store = Ext.create("Bleext.modules.catalogs.users.store.Users",{
+			autoLoad	: false
+		});
 		
 		if(me.draggable){
 			me.listeners = {
@@ -33,7 +37,6 @@ Ext.define("Bleext.modules.catalogs.users.view.UsersView",{
 				render	: this.initializeDragZone
 			};
 		}
-		
 		me.callParent();
 	},
 	

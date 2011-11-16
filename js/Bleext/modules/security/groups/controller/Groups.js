@@ -22,15 +22,23 @@ Ext.define("Bleext.modules.security.groups.controller.Groups",{
 	init		: function(){
 		var me = this;
 		me.callParent();
-		
+
 		me.control({
 			"panel[region=center] dataview"	: {
-				itemdrop		: this.addRoleUser,
-				itemclick		: this.showRoleUsers,
-				containerclick	: this.hideRoleUser,
-				selectionchange	: this.toggleDelete
+				itemdrop		: me.addRoleUser,
+				itemclick		: me.showRoleUsers,
+				containerclick	: me.hideRoleUser,
+				selectionchange	: me.toggleDelete,
+				afterrender		: me.loadData
+			},
+			"panel[region=west] dataview"	: {
+				afterrender		: me.loadData
 			}
 		});
+	},
+	
+	loadData	: function(view){
+		view.getStore().load();
 	},
 	
 	add			: function(){
