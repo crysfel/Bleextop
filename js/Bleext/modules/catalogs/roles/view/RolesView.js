@@ -29,7 +29,9 @@ Ext.define("Bleext.modules.catalogs.roles.view.RolesView",{
 		
 		me.addEvents("itemdrop");
 		
-		me.store = Ext.create("Bleext.modules.catalogs.roles.store.Roles");
+		me.store = Ext.create("Bleext.modules.catalogs.roles.store.Roles",{
+			autoLoad	: false
+		});
 		me.tpl = me.createTemplate();
         
 		if(me.droppable){
@@ -47,7 +49,6 @@ Ext.define("Bleext.modules.catalogs.roles.view.RolesView",{
 			'<p class="bleext-roles-view-text">Drop users in any role.</p>',
 			'<tpl for=".">',
 				'<div class="bleext-role-wrap">',
-					//'<img src="{base_path}{avatar}" />',
 					'<p><span>{name} ({users} Users)</span></p>',
 					'<p>{description}</p>',
 				'</div>',

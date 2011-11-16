@@ -37,6 +37,7 @@ Ext.define("Bleext.modules.security.groups.view.Viewport",{
 				})
 			});
 			
+		
 		return [{
 			region		: "west",
 			width		: 180,
