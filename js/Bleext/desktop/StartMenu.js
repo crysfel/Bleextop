@@ -126,6 +126,7 @@ Ext.define('Bleext.desktop.StartMenu', {
 							xy[0] -= r.x;
 			                xy[1] -= r.y;
 							break;
+					default	: break;
 				}
                 
             }
