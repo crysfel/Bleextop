@@ -15,6 +15,37 @@ class PermissionsBI extends BleextBI{
 		return $this->instance->permissiondao->getAll();
 	}
 	
+	/**
+	 *	Return the application permissions for the given user
+	 *	@params data An array containing the user model and the application_id
+	 *	@return Array containing the permissions and success property
+	 **/
+	public function getByUserApplication($data){
+		$permissions = array();
+		
+		//get permissions generic permissions by role
+		$result = $this->instance->permissiondao->getUserRoleAppPermission(array(
+			"application_k"	=> $data["application_k"],
+			"user_k"		=> $data["user"]["user_k"]
+		));
+		
+		//@TODO query the database here to get especific permissions on this user
+		
+		foreach($result as $r){
+			$permissions[$r["action"]] = $r["value"] === "1";
+		}
+		
+		return array(
+			"success"	=> true,
+			"data"		=> $permissions
+		);
+	}
+	
+	/**
+	 *	Return the permissions for the given application
+	 *	@params application_k The id application
+	 *	@return Array containing the application permissions and a success property
+	 **/
 	public function getByApplication($application_k){
 		$rows = array();
 		$permissions = $this->instance->permissiondao->getByApplication($application_k);

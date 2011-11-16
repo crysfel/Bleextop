@@ -67,4 +67,20 @@ class PermissionDao extends CI_Model{
 		return $rs->result_array();
 	}
 	
+	//get application permissions for an user based in his role
+	public function getUserRoleAppPermission($data){
+		$rs = $this->db->select("upper(P.action) as action, RP.value")
+							->from("permissions P")
+							->join("role_permissions RP","RP.permission_k = P.permission_k")
+							->join("roles R","R.role_k = RP.role_k")
+							->join("user_roles UR","UR.role_k = R.role_k")
+							->join("users U","U.user_k = UR.user_k")
+							->where(array(
+								"P.application_k" 	=> $data["application_k"],
+								"U.user_k" 			=> $data["user_k"]
+							))
+							->get();
+							
+		return $rs->result_array();
+	}
 }
