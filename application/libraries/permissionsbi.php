@@ -32,7 +32,10 @@ class PermissionsBI extends BleextBI{
 		//@TODO query the database here to get especific permissions on this user
 		
 		foreach($result as $r){
-			$permissions[$r["action"]] = $r["value"] === "1";
+			//Collaboration by @joel-e
+			if (!isset($permissions[$r["action"]]) || $r["value"] === "1") {
+                		$permissions[$r["action"]] = $r["value"] === "1";
+            		}
 		}
 		
 		return array(
