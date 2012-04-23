@@ -136,6 +136,11 @@ Ext.define("Bleext.desktop.WindowManager",{
         }
 
         me.taskbar.setActiveButton(activeWindow && activeWindow.taskButton);
+        // prepends the active app window's title to the Bleext desktop window title, e.g.: [app title] - desktop title
+        if (!window.document.originalTitle) {
+            window.document.originalTitle = window.document.title;
+        }
+        window.document.title = ((activeWindow && activeWindow.title) ? '['+ activeWindow.title +'] - ' : '') + window.document.originalTitle;
     },
 
 	getActiveWindow: function () {
