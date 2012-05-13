@@ -34,8 +34,8 @@ class PermissionsBI extends BleextBI{
 		foreach($result as $r){
 			//Collaboration by @joel-e
 			if (!isset($permissions[$r["action"]]) || $r["value"] === "1") {
-                		$permissions[$r["action"]] = $r["value"] === "1";
-            		}
+                $permissions[$r["action"]] = $r["value"] === "1";
+            }
 		}
 		
 		return array(
