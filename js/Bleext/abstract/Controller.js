@@ -21,7 +21,6 @@ Ext.define("Bleext.abstract.Controller",{
 	/**
 	 * @cfg {Object} selectors Object of selectors, used for remove the listeners from the event bus when module is destroyed
 	 */
-	selectors : [],
 	
 	//private
 	init	: function() {
@@ -58,7 +57,12 @@ Ext.define("Bleext.abstract.Controller",{
 				obj[s] = actions[selector];
 			},this);
 			delete actions;
+
+			if (!me.selectors){
+				me.selectors = [];
+			}
 			me.selectors.push(obj);
+			
 			this.callParent([obj]);
 		}else{
 			this.callParent(arguments);
