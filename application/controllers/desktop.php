@@ -16,7 +16,7 @@ class Desktop extends Bleext_Controller {
 		$this->load->library("applicationbi");
 
 		$this->response(true,array(
-			"dock"		=> "top",
+			"dock"		=> "bottom",
 			"user"		=> $this->getUser(),
 			"config"	=> array(
 				"wallpaper"	=> "resources/wallpapers/blue2.jpg"

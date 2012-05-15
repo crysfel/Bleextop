@@ -70,12 +70,12 @@ Ext.define("Bleext.desktop.Application",{
 	runApplication	: function(item) {
 		var app = item.initialConfig,
 			me	= this;
-			
+		
 		me.desktop.windowMgr.loader.show();
 		Bleext.Ajax.request({
 			url		: Bleext.BASE_PATH+"index.php/catalogs/permissions/getForCurrentUserApplication",
 			scope	: me,
-			app 	: app,
+			app		: app,
 			params	: {
 				application_k : app.application_k
 			},

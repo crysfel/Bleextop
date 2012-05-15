@@ -28,7 +28,8 @@ Ext.define("Bleext.desktop.WindowManager",{
 		
 		this.windows = new Ext.util.MixedCollection();
 		this.loader = Ext.create("Bleext.desktop.LoadingModule",{
-			hidden	: true
+			hidden	: true,
+            renderTo: Ext.getBody()
 		});
         
 		this.callParent();
@@ -82,7 +83,8 @@ Ext.define("Bleext.desktop.WindowManager",{
         });
 
         win.on({
-            afterrender: function () {
+            afterrender : function () {
+                
                 win.dd.xTickSize = me.xTickSize;
                 win.dd.yTickSize = me.yTickSize;
 
@@ -90,8 +92,10 @@ Ext.define("Bleext.desktop.WindowManager",{
                     win.resizer.widthIncrement = me.xTickSize;
                     win.resizer.heightIncrement = me.yTickSize;
                 }
+                
             },
-            single: true
+            single      : true,
+            delay       :100
         });
 		
         return win;

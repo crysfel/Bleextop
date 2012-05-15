@@ -26,7 +26,7 @@ If you are unsure which license is appropriate for your use, please contact the 
  * other.</p>
  */
 Ext.define('Bleext.desktop.FitAllLayout', {
-    extend: 'Ext.layout.container.AbstractFit',
+    extend: 'Ext.layout.container.Fit',
     alias: 'layout.fitall',
 
     // @private
